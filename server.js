@@ -2,15 +2,12 @@
 // into process.env
 require('dotenv').config()
 
-
 //import express
 const express = require('express');
-
-
-const logger = require('morgan');
-
 // initialize the app
 const app = express();
+
+const logger = require('morgan');
 
 //  body-parser is an npm plugin for Express that we need to use in order
 //  to be able to capture data coming via a form. Express used to have this
@@ -24,23 +21,50 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 8000;
 
 
-// All your routes are in there
-const routes = require('./routes');
 
-// **********************************
-// app.uses
-// **********************************
-// app.use(cors())
 app.use(bodyParser.json());
-app.use('/', routes);
 
 
-
-
-// index route
+// **********************************
+// Index Route
+// **********************************
 app.get('/', (req, res, next) => {
-res.send(`Hello world, let's steal some art. The api key is: ${process.env.API_KEY}`)
+res.send(`Hello world, let's steal some art.`)
 })
+
+// **********************************
+// API Route
+// **********************************
+app.get('/api', axiosCall, (req, res, next) => {
+  console.log(`Hello Api`)
+  res.send({
+    imagelink: res.locals.imagelink
+  })
+})
+
+function axiosCall() {
+  axios.get('https://www.brooklynmuseum.org/api/v2/archive/image/', {
+   headers: {
+     api_key: process.env.API_KEY
+   }
+  }).then((response) => {
+    return response.json()
+  })
+  .then((response => {
+    getArtData(response)
+    console.log(response)
+  })
+  .catch((error) => {
+    console.log("error:", error)
+  }))
+
+}
+
+function getArtData(res) {
+  let imagelink = res.data.largest_derivative_url
+  console.log(imagelink)
+}
+
 
 
 // **********************************
@@ -56,12 +80,45 @@ app.use((req, res, next) => {
 })
 
 
-
-// tell the app where to serve
-
+// **********************************
+// Hello there
+// **********************************
 app.listen(port, () => {
   console.log(`Let's steal some art! Listening on port: ${port}, in ${app.get('env')} mode.`);
 }).on('error', console.error);
+
+
+// **********************************
+// Allow CORS
+// **********************************
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Headers", "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    next();
+});
+
+
+
+// **********************************
+// What's this
+// **********************************
+app.use((err, req, res, next) => {
+    console.log(err);
+    res.status(500).json({
+        error: err,
+        message: err.message,
+    });
+});
+
+
+
+
+
+
+
+
 
 
 
