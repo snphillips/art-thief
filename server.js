@@ -59,58 +59,6 @@ app.get("/brooklynmuseumapi", (req, res, next) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// **********************************
-// API Route
-// **********************************
-
-// app.get('/api', axiosCall, (req, res, next) => {
-//   console.log(`Hello Api`)
-//   res.send({
-//     imagelink: res.locals.imagelink
-//   })
-// })
-
-// function axiosCall() {
-//   axios.get('https://www.brooklynmuseum.org/api/v2/archive/image/', {
-//    headers: {api_key: process.env.API_KEY}
-//   })
-//   .then(function (response) {
-//     console.log(response)
-//     getArtData(response)
-//   })
-//   .catch(function (error) {
-//     console.log("error:", error)
-//   })
-// }
-
-// function getArtData(res) {
-//   let imagelink = res.data.largest_derivative_url
-//   console.log(imagelink)
-// }
-
-// app.get('/api', () => {
-
-// })
-
-
-
-
 // **********************************
 // Error Handlers
 // **********************************
@@ -125,7 +73,7 @@ app.use((req, res, next) => {
 
 
 // **********************************
-// Hello there
+// Port
 // **********************************
 app.listen(port, () => {
   console.log(`Let's steal some art! Listening on port: ${port}, in ${app.get('env')} mode.`);
