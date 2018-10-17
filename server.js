@@ -9,13 +9,12 @@ const app = express();
 
 const logger = require('morgan');
 
-//  body-parser is an npm plugin for Express that we need to use in order
-//  to be able to capture data coming via a form. Express used to have this
-//  functionality built-in but in order to achieve easier maintenance
-//  body-parser has been removed from the core of Express. body-parse parses
+//  body-parser captures data coming via a form.  body-parse parses
 //  incoming request bodies in a middleware before your handlers, available
-//  under the req.body property. (TLDR: makes our forms work)
+//  under the req.body property. (TLDR: allows our forms to work)
 const bodyParser = require('body-parser');
+
+const axios = require('axios');
 
 // set the port, either from an environmental variable or manually
 const port = process.env.PORT || 8000;
@@ -26,44 +25,101 @@ app.use(bodyParser.json());
 
 
 // **********************************
-// Index Route
+// index route
 // **********************************
 app.get('/', (req, res, next) => {
 res.send(`Hello world, let's steal some art.`)
 })
 
+
+
+// **********************************
+// axios call - works but not loading
+// **********************************
+// let axiosCall = () => {
+// axios.get("https://api.openweathermap.org/data/2.5/weather?zip=11231&units=imperial&appid=fb1d469d46d8692c83f7c5a6183ad373")
+//   .then(response => {
+//     console.log(response.data);
+//     console.log("Hey there from inside the axios call")
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+// }
+
+let axiosCall = () => {
+  axios.get("https://www.brooklynmuseum.org/api/v2/archive/image/",
+    {headers: {
+      api_key: process.env.API_KEY
+    }
+    }
+  )
+  .then(response => {
+    console.log(response.data);
+    console.log("Hey there from inside the axios call")
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
+
 // **********************************
 // API Route
 // **********************************
-app.get('/api', axiosCall, (req, res, next) => {
-  console.log(`Hello Api`)
-  res.send({
-    imagelink: res.locals.imagelink
-  })
+app.get('/api', axiosCall, (req, res, err, next) => {
+  console.log("hey there")
 })
 
-function axiosCall() {
-  axios.get('https://www.brooklynmuseum.org/api/v2/archive/image/', {
-   headers: {
-     api_key: process.env.API_KEY
-   }
-  }).then((response) => {
-    return response.json()
-  })
-  .then((response => {
-    getArtData(response)
-    console.log(response)
-  })
-  .catch((error) => {
-    console.log("error:", error)
-  }))
 
-}
 
-function getArtData(res) {
-  let imagelink = res.data.largest_derivative_url
-  console.log(imagelink)
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// **********************************
+// API Route
+// **********************************
+
+// app.get('/api', axiosCall, (req, res, next) => {
+//   console.log(`Hello Api`)
+//   res.send({
+//     imagelink: res.locals.imagelink
+//   })
+// })
+
+// function axiosCall() {
+//   axios.get('https://www.brooklynmuseum.org/api/v2/archive/image/', {
+//    headers: {api_key: process.env.API_KEY}
+//   })
+//   .then(function (response) {
+//     console.log(response)
+//     getArtData(response)
+//   })
+//   .catch(function (error) {
+//     console.log("error:", error)
+//   })
+// }
+
+// function getArtData(res) {
+//   let imagelink = res.data.largest_derivative_url
+//   console.log(imagelink)
+// }
+
+// app.get('/api', () => {
+
+// })
+
 
 
 
@@ -76,7 +132,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  res.status(404).send(`Oh no a 404 error. I can't find.`)
+  res.status(404).send(`Oh no a 404 error. I can't find that.`)
 })
 
 
@@ -98,28 +154,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
 });
-
-
-
-// **********************************
-// What's this
-// **********************************
-app.use((err, req, res, next) => {
-    console.log(err);
-    res.status(500).json({
-        error: err,
-        message: err.message,
-    });
-});
-
-
-
-
-
-
-
-
-
 
 
 module.exports = app;
