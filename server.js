@@ -39,23 +39,32 @@ app.get('/', (req, res, next) => {
 app.get("/brooklynmuseumapi", (req, res, next) => {
   axios.get("https://www.brooklynmuseum.org/api/v2/archive/image/?limit=10",
     {headers:
-      {api_key: process.env.API_KEY}
+      {api_key: process.env.BROOKLYN_API_KEY}
     })
-    .then( (response) => {
-
+      .then( (response) => {
       return res.json(response.data.data)
-
       // TODO: none of the console.logs are showing up. Why?
-      console.log(response.data);
       console.log(response.data.data);
-      console.log("Hey there from inside the axios call!")
       console.log("Caption:", response.data.data[0].caption);
       console.log("Image Link:", response.data.data[0].largest_derivative_url);
 
     })
-    .catch(error => {
-      console.log(error)
+      .catch(error => {
+        console.log(error)
     });
+});
+
+// **********************************
+// Cooper Hewitt Desgin API Route
+// **********************************
+app.get('/cooperhewittapi', (req, res, next) => {
+  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getRandom&access_token=${process.env.COOPER_API_TOKEN}&has_image=1`)
+  .then((response) => {
+    return res.json(response.data)
+  })
+  .catch((error) => {
+    console.log(error)
+  });
 });
 
 
