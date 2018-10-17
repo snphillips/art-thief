@@ -28,47 +28,35 @@ app.use(bodyParser.json());
 // index route
 // **********************************
 app.get('/', (req, res, next) => {
-res.send(`Hello world, let's steal some art.`)
+  res.send(`Hello world, let's steal some art.`)
 })
 
 
 
 // **********************************
-// axios call - works but not loading
+// Brooklyn Museum API Route
 // **********************************
-// let axiosCall = () => {
-// axios.get("https://api.openweathermap.org/data/2.5/weather?zip=11231&units=imperial&appid=fb1d469d46d8692c83f7c5a6183ad373")
-//   .then(response => {
-//     console.log(response.data);
-//     console.log("Hey there from inside the axios call")
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-// }
+app.get("/brooklynmuseumapi", (req, res, next) => {
+  axios.get("https://www.brooklynmuseum.org/api/v2/archive/image/?limit=10",
+    {headers:
+      {api_key: process.env.API_KEY}
+    })
+    .then( (response) => {
 
-let axiosCall = () => {
-  axios.get("https://www.brooklynmuseum.org/api/v2/archive/image/",
-    {headers: {
-      api_key: process.env.API_KEY
-    }
-    }
-  )
-  .then(response => {
-    console.log(response.data);
-    console.log("Hey there from inside the axios call")
-  })
-  .catch(error => {
-    console.log(error);
-  });
-}
+      return res.json(response.data.data)
 
-// **********************************
-// API Route
-// **********************************
-app.get('/api', axiosCall, (req, res, err, next) => {
-  console.log("hey there")
-})
+      // TODO: none of the console.logs are showing up. Why?
+      console.log(response.data);
+      console.log(response.data.data);
+      console.log("Hey there from inside the axios call!")
+      console.log("Caption:", response.data.data[0].caption);
+      console.log("Image Link:", response.data.data[0].largest_derivative_url);
+
+    })
+    .catch(error => {
+      console.log(error)
+    });
+});
 
 
 
