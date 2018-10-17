@@ -11,7 +11,7 @@ export default class App extends Component {
 
     this.state = {
       randomCooperTitle: "",
-      randomCoopoerDate: "",
+      randomCooperDate: "",
       randomCooperImageURL: "",
     };
 
@@ -32,9 +32,10 @@ export default class App extends Component {
   cooperHewittRandomFromAPI() {
     axios.get('http://localhost:8000/cooperhewittapi')
       .then( (response) => {
-        this.setState({randomCooperTitle: response.data.object[0].title})
-        this.setState({randomCooperDate: response.data.object[0].date})
-        this.setState({randomCooperImageURL: response.data.object[0].images[0].z.url})
+
+        this.setState({randomCooperTitle: response.data.object.title})
+        this.setState({randomCooperDate: response.data.object.date})
+        this.setState({randomCooperImageURL: response.data.object.images[0].z.url})
       })
       .catch(function (error) {
         console.log(error);
@@ -55,7 +56,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <Button handleSubmit={this.handleSubmit}/>
-        <ArtResult />
+        <ArtResult parent_state={this.state}/>
       </div>
     );
   }
