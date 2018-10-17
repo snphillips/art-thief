@@ -13,6 +13,7 @@ export default class App extends Component {
       randomCooperTitle: "",
       randomCooperDate: "",
       randomCooperImageURL: "",
+      randomCooperURL: "",
     };
 
   // This binding is necessary to make `this` work in the callback
@@ -35,6 +36,7 @@ export default class App extends Component {
 
         this.setState({randomCooperTitle: response.data.object.title})
         this.setState({randomCooperDate: response.data.object.date})
+        this.setState({randomCooperURL: response.data.object.url})
         this.setState({randomCooperImageURL: response.data.object.images[0].z.url})
       })
       .catch(function (error) {
