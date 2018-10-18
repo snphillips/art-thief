@@ -22,15 +22,16 @@ export default class App extends Component {
   this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
 
-
+  }
 // ***********************************
 // End of constructor
 // ***********************************
+
+
   cooperHewittRandomFromAPI() {
     // The source of data from the server is set in this.state above
     axios.get(this.state.serverSource)
       .then( (response) => {
-
         this.setState({randomCooperTitle: response.data.object.title})
         this.setState({randomCooperDate: response.data.object.date})
         this.setState({randomCooperURL: response.data.object.url})
@@ -39,13 +40,13 @@ export default class App extends Component {
       .catch(function (error) {
         console.log(error);
       });
-  }
+  };
 
   handleSubmit(event) {
     event.preventDefault();
     console.log("button clicked")
     this.cooperHewittRandomFromAPI()
-  }
+  };
 
 //  ==================================
 //  And finally, the render

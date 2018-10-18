@@ -7,10 +7,17 @@ const express = require('express');
 // initialize the app
 const app = express();
 
+
+
+
 const logger = require('morgan');
 
 // npm package to allow cross origin resource sharing
 const cors = require('cors')
+// **********************************
+// CORS
+// **********************************
+app.use(cors())
 
 //  body-parser captures data coming via a form.  body-parse parses
 //  incoming request bodies in a middleware before your handlers, available
@@ -21,8 +28,6 @@ const axios = require('axios');
 
 // set the port, either from an environmental variable or manually
 const port = process.env.PORT || 8000;
-
-
 
 
 
@@ -82,10 +87,6 @@ app.use((req, res, next) => {
   res.status(404).send(`Oh no a 404 error. I can't find that.`)
 })
 
-// **********************************
-// CORS
-// **********************************
-app.use(cors())
 
 app.use(bodyParser.json());
 
@@ -100,13 +101,13 @@ app.listen(port, () => {
 // **********************************
 // Allow CORS
 // **********************************
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Headers", "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Credentials", "true");
+//     res.header("Access-Control-Allow-Headers", "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//     next();
+// });
 
 
 module.exports = app;
