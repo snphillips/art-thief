@@ -7,21 +7,18 @@ const express = require('express');
 // initialize the app
 const app = express();
 
-
-
-
 const logger = require('morgan');
 
-// npm package to allow cross origin resource sharing
-const cors = require('cors')
+
 // **********************************
 // CORS
+// npm package to allow cross origin resource sharing
 // **********************************
+const cors = require('cors')
 app.use(cors())
 
-//  body-parser captures data coming via a form.  body-parse parses
-//  incoming request bodies in a middleware before your handlers, available
-//  under the req.body property. (TLDR: allows our forms to work)
+// Body-parser captures data coming via a form.
+// Allows our forms to work)
 const bodyParser = require('body-parser');
 
 const axios = require('axios');
@@ -99,7 +96,7 @@ app.listen(port, () => {
 
 
 // **********************************
-// Allow CORS
+// Allow CORS - not using at the moment
 // **********************************
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
