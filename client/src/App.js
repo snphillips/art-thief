@@ -10,7 +10,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      randomCooperTitle: "",
+      serverSource: 'https://art-thief.herokuapp.com/cooperhewittapi',
+      randomCooperTitle: '',
       randomCooperDate: "",
       randomCooperImageURL: "",
       randomCooperURL: "",
