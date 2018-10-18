@@ -11,10 +11,11 @@ export default class App extends Component {
 
     this.state = {
       serverSource: 'https://art-thief.herokuapp.com/cooperhewittapi',
+      // serverSource: 'http://localhost:8000/cooperhewittapi',
       randomCooperTitle: '',
-      randomCooperDate: "",
-      randomCooperImageURL: "",
-      randomCooperURL: "",
+      randomCooperDate: '',
+      randomCooperImageURL: '',
+      randomCooperURL: '',
     };
 
   // This binding is necessary to make `this` work in the callback
@@ -22,17 +23,12 @@ export default class App extends Component {
   this.handleSubmit = this.handleSubmit.bind(this);
 
 
-
-
-
-  console.log("sanity check")
-  }
-
 // ***********************************
 // End of constructor
 // ***********************************
   cooperHewittRandomFromAPI() {
-    axios.get('http://localhost:8000/cooperhewittapi')
+    // The source of data from the server is set in this.state above
+    axios.get(this.state.serverSource)
       .then( (response) => {
 
         this.setState({randomCooperTitle: response.data.object.title})
