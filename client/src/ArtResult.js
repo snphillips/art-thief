@@ -17,8 +17,8 @@ export default class ArtResult extends Component {
       <div className="ArtResult">
         <div className="cooper-title">{title}</div>
         <div className="cooper-date">{date}</div>
-        <div className="cooper-image-URL"><img src={imageURL} alt="random image from museum" /></div>
-        Learn more:<div className="cooper-url">{url}</div>
+        <div className="cooper-image-URL"><img src={imageURL} alt="random item from collection"/></div>
+        <div className="cooper-url"><a href={url}>learn more here</a></div>
       </div>
     );
   }
