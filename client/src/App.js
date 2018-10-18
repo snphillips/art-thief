@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import Button from './Button';
-import ArtResult from './ArtResult'
+import ArtResult from './ArtResult';
+// import ReactSpinner from './ReactSpinner'
 // import './App.css';
 
 export default class App extends Component {
@@ -16,6 +17,9 @@ export default class App extends Component {
       randomCooperDate: '',
       randomCooperImageURL: '',
       randomCooperURL: '',
+
+      // TODO: display art result page or not
+      displayArtResult: false,
     };
 
   // This binding is necessary to make `this` work in the callback
@@ -34,8 +38,8 @@ export default class App extends Component {
       .then( (response) => {
         this.setState({randomCooperTitle: response.data.object.title})
         this.setState({randomCooperDate: response.data.object.date})
-        this.setState({randomCooperURL: response.data.object.url})
         this.setState({randomCooperImageURL: response.data.object.images[0].z.url})
+        this.setState({randomCooperURL: response.data.object.url})
       })
       .catch(function (error) {
         console.log(error);
@@ -61,4 +65,5 @@ export default class App extends Component {
     );
   }
 }
+        // <ReactSpinner loading={this.props.loading} />
 

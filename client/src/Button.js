@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 
 export default class Button extends Component {
   render() {
@@ -10,7 +9,7 @@ export default class Button extends Component {
           <input
             className="button"
             type="submit"
-            value="submit"
+            value="Click to reveal a random item from the Cooper Hewitt Museum."
             placeholder="steal this art"
             onClick={this.props.handleSubmit}
           />
