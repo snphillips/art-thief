@@ -12,7 +12,7 @@ export default class ArtResult extends Component {
 
     return (
       <div className="ArtResult" style={this.props.parent_state.displayArtResult}>
-        <img src={imageURL} alt="random item from collection"className="cooper-image-URL"onClick={this.props.viewBigImage}/>
+        <img src={imageURL} alt="random item from collection"className="image-URL"onClick={this.props.viewBigImage}/>
         <div ><a href={url} className="learn-more-link">learn more about this item</a></div>
       </div>
     );

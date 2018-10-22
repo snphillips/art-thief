@@ -31,19 +31,18 @@ export default class App extends Component {
       displayPlaceholderSquare: {"display": "block"},
     };
 
-  // This binding is necessary to make `this` work in the callback
-  this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
-  this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
-  this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
-  this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
-  this.viewBigImage = this.viewBigImage.bind(this);
+    // This binding is necessary to make `this` work in the callback
+    this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
+    this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
+    this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
+    this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
+    this.viewBigImage = this.viewBigImage.bind(this);
+    this.closeBigImage = this.closeBigImage.bind(this);
 
   }
 // ***********************************
 // End of constructor
 // ***********************************
-
-
   cooperHewittRandomFromAPI() {
     // The source of data from the server is set in this.state above
     axios.get(this.state.serverSource)
@@ -89,6 +88,12 @@ export default class App extends Component {
     this.setState({BigImageURL: this.imageURL})
   }
 
+  closeBigImage(event) {
+    console.log("close big image")
+    this.setState({showModal: {'display': "none"}})
+  }
+
+
 //  ==================================
 //  And finally, the render
 //  ==================================
@@ -98,12 +103,12 @@ export default class App extends Component {
         <Header />
         Click to reveal a random item from the Cooper Hewitt Museum:
         <br />
-        <Button01 handleSubmitButton01={this.handleSubmitButton01}/>
-        <Button02 handleSubmitButton02={this.handleSubmitButton02}/>
-        <Button03 handleSubmitButton03={this.handleSubmitButton03}/>
-        <PlaceholderSquare parent_state={this.state}/>
-        <ImageModal parent_state={this.state}/>
-        <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage}/>
+        <Button01 handleSubmitButton01={this.handleSubmitButton01} />
+        <Button02 handleSubmitButton02={this.handleSubmitButton02} />
+        <Button03 handleSubmitButton03={this.handleSubmitButton03} />
+        <PlaceholderSquare parent_state={this.state} />
+        <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
+        <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
       </div>
     );
   }

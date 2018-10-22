@@ -13,7 +13,7 @@ export default class ImageModal extends Component {
 
       <span className="close-modal">&times;</span>
 
-      <img className="image-large" src={this.props.parent_state.imageURL}/>
+      <img className="image-large" src={this.props.parent_state.imageURL} onClick={this.props.closeBigImage} />
 
   </div>
 
