@@ -11,9 +11,9 @@ export default class ArtResult extends Component {
   const url = this.props.parent_state.randomCooperURL
 
     return (
-      <div className="ArtResult">
-        <div className="cooper-image-URL"><img src={imageURL} alt="random item from collection"/></div>
-        <div className="cooper-url"><a href={url}>learn more here</a></div>
+      <div className="ArtResult" style={this.props.parent_state.displayArtResult}>
+        <img src={imageURL} alt="random item from collection"className="cooper-image-URL"onClick={this.props.viewBigImage}/>
+        <div ><a href={url} className="cooper-learn-more-link">learn more about this item</a></div>
       </div>
     );
   }

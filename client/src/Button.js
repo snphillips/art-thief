@@ -9,9 +9,9 @@ export default class Button extends Component {
           <input
             className="button"
             type="submit"
-            value="Click to reveal a random item from the Cooper Hewitt Museum."
+            value="Reveal a random item from the Cooper Hewitt Museum."
             placeholder="steal this art"
-            onClick={this.props.handleSubmit}
+            onClick={this.props.handleSubmitButton}
           />
          </form>
       </div>
