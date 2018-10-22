@@ -20,21 +20,22 @@ export default class App extends Component {
     this.state = {
       serverSource: 'https://art-thief.herokuapp.com/cooperhewittapi',
       // serverSource: 'http://localhost:8000/cooperhewittapi',
-      randomCooperTitle: '',
-      randomCooperDate: '',
-      randomCooperImageURL: '',
-      randomCooperURL: '',
+      randomTitle: '',
+      randomDate: '',
+      randomImageURL: '',
+      imageURL: '',
+      randomURL: '',
       showModal: {"display": "none"},
       displayArtResult: {"display": "none"},
-      displayLargeArtModal: {"display": "none"},
-      displayPlaceholderSquare: {"display": "true"},
+      displayLargeArt: {"display": "none"},
+      displayPlaceholderSquare: {"display": "block"},
     };
 
   // This binding is necessary to make `this` work in the callback
   this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
   this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
-  // this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
-  // this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
+  this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
+  this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
   this.viewBigImage = this.viewBigImage.bind(this);
 
   }
@@ -47,27 +48,45 @@ export default class App extends Component {
     // The source of data from the server is set in this.state above
     axios.get(this.state.serverSource)
       .then( (response) => {
-        this.setState({randomCooperTitle: response.data.object.title})
-        this.setState({randomCooperDate: response.data.object.date})
-        this.setState({randomCooperImageURL: response.data.object.images[0].z.url})
-        this.setState({randomCooperURL: response.data.object.url})
+        this.setState({randomTitle: response.data.object.title})
+        this.setState({randomDate: response.data.object.date})
+        this.setState({imageURL: response.data.object.images[0].z.url})
+        this.setState({randomURL: response.data.object.url})
       })
       .catch(function (error) {
+        console.log(error);
         console.log(error);
       });
   };
 
   handleSubmitButton01(event) {
     event.preventDefault();
-    console.log("button clicked")
+    console.log("button 01 clicked")
     this.cooperHewittRandomFromAPI()
     this.setState({displayArtResult: {"display": "block"}})
+    this.setState({displayPlaceholderSquare: {"display": "none"}})
+  };
+
+  handleSubmitButton02(event) {
+    event.preventDefault();
+    console.log("button 02 clicked")
+    this.cooperHewittRandomFromAPI()
+    this.setState({displayArtResult: {"display": "block"}})
+    this.setState({displayPlaceholderSquare: {"display": "none"}})
+  };
+
+  handleSubmitButton03(event) {
+    event.preventDefault();
+    console.log("button 03 clicked")
+    this.cooperHewittRandomFromAPI()
+    this.setState({displayArtResult: {"display": "block"}})
+    this.setState({displayPlaceholderSquare: {"display": "none"}})
   };
 
   viewBigImage(event) {
     console.log("image clicked")
     this.setState({showModal: {'display': "block"}})
-    // this.setState({randomCooperImageURL: this.response.data.object.images[0].z.url})
+    this.setState({BigImageURL: this.imageURL})
   }
 
 //  ==================================

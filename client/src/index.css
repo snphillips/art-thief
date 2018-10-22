@@ -51,7 +51,7 @@ a:hover {
   text-align: center;
   /*text-decoration: none;*/
   font-weight: bold;
-  display: inline-block;
+  /*display: inline-block;*/
   font-size: 100%;
   margin: 10px 15px 20px 0px;
   cursor: pointer;
@@ -114,13 +114,13 @@ Image
   display: block;
   width: 80%;
   max-width: 1000px;
-  max-height: 500px;
+  max-height: 480px;
 }
 
-.cooper-learn-more-link {
+.learn-more-link {
   text-decoration: none;
   font-family: 'Kurale', serif;
-  font-style: italic;
+  /*font-style: italic;*/
 }
 
 /* The Close Button */

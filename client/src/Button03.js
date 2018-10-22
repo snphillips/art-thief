@@ -11,7 +11,7 @@ export default class Button03 extends Component {
             type="submit"
             value="subset 3"
             placeholder=""
-            onClick={this.props.handleSubmitButton}
+            onClick={this.props.handleSubmitButton03}
           />
          </form>
     );
