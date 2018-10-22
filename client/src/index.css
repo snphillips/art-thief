@@ -49,6 +49,7 @@ a:hover {
   /*text-decoration: none;*/
   font-weight: bold;
   display: inline-block;
+  display: span;
   font-size: 100%;
   margin: 10px 0px 20px 0px;
   cursor: pointer;
@@ -62,14 +63,19 @@ a:hover {
   transition: linear-gradient 400ms ease-out;
 }
 
+#placeholder-square {
+  background-color: rgba(0,0,0,1);
+  height: 380px;
+  width: 380px;
+}
 
 /*==============================
-General Styling
+Image
 ================================*/
 .cooper-image-URL {
   cursor: pointer;
-  max-width: 700px;
   max-height: 380px;
+  max-width: 700px;
   transition: 0.3s;
 }
 

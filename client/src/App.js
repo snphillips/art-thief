@@ -5,7 +5,10 @@ import axios from 'axios';
 // Importing Pages
 // ===============================
 import Header from './Header';
-import Button from './Button';
+import PlaceholderSquare from './PlaceholderSquare';
+import Button01 from './Button01';
+import Button02 from './Button02';
+import Button03 from './Button03';
 import ArtResult from './ArtResult';
 import ImageModal from './ImageModal'
 
@@ -22,14 +25,16 @@ export default class App extends Component {
       randomCooperImageURL: '',
       randomCooperURL: '',
       showModal: {"display": "none"},
-
-      // TODO: display art result page or not
       displayArtResult: {"display": "none"},
+      displayLargeArtModal: {"display": "none"},
+      displayPlaceholderSquare: {"display": "true"},
     };
 
   // This binding is necessary to make `this` work in the callback
   this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
-  this.handleSubmitButton = this.handleSubmitButton.bind(this);
+  this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
+  // this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
+  // this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
   this.viewBigImage = this.viewBigImage.bind(this);
 
   }
@@ -52,7 +57,7 @@ export default class App extends Component {
       });
   };
 
-  handleSubmitButton(event) {
+  handleSubmitButton01(event) {
     event.preventDefault();
     console.log("button clicked")
     this.cooperHewittRandomFromAPI()
@@ -72,7 +77,11 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Button handleSubmitButton={this.handleSubmitButton}/>
+        Click to reveal a random item from the Cooper Hewitt Museum:
+        <Button01 handleSubmitButton01={this.handleSubmitButton01}/>
+        <Button02 handleSubmitButton02={this.handleSubmitButton02}/>
+        <Button03 handleSubmitButton03={this.handleSubmitButton03}/>
+        <PlaceholderSquare parent_state={this.state}/>
         <ImageModal parent_state={this.state}/>
         <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage}/>
       </div>

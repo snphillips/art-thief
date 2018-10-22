@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Button extends Component {
+export default class Button01 extends Component {
   render() {
     return (
       <div className="Button">
@@ -9,9 +9,9 @@ export default class Button extends Component {
           <input
             className="button"
             type="submit"
-            value="Reveal a random item from the Cooper Hewitt Museum."
+            value="subset 1"
             placeholder="steal this art"
-            onClick={this.props.handleSubmitButton}
+            onClick={this.props.handleSubmitButton01}
           />
          </form>
       </div>
