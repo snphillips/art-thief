@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class Button03 extends Component {
   render() {
     return (
-      <div className="Button">
 
-        <form>
+
+        <form className="button-tray">
           <input
             className="button"
             type="submit"
@@ -14,7 +14,6 @@ export default class Button03 extends Component {
             onClick={this.props.handleSubmitButton}
           />
          </form>
-      </div>
     );
   }
 }

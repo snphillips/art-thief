@@ -36,6 +36,9 @@ a:hover {
   color: rgba(0,0,0,.5);
 }
 
+.button-tray{
+  display: inline;
+}
 
 .button {
   background-color: rgba(0,0,0,1);
@@ -49,9 +52,8 @@ a:hover {
   /*text-decoration: none;*/
   font-weight: bold;
   display: inline-block;
-  display: span;
   font-size: 100%;
-  margin: 10px 0px 20px 0px;
+  margin: 10px 15px 20px 0px;
   cursor: pointer;
   /*not working*/
     transition: linear-gradient 400ms ease-in;

@@ -78,6 +78,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         Click to reveal a random item from the Cooper Hewitt Museum:
+        <br />
         <Button01 handleSubmitButton01={this.handleSubmitButton01}/>
         <Button02 handleSubmitButton02={this.handleSubmitButton02}/>
         <Button03 handleSubmitButton03={this.handleSubmitButton03}/>

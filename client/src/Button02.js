@@ -3,18 +3,15 @@ import React, { Component } from 'react';
 export default class Button02 extends Component {
   render() {
     return (
-      <div className="Button">
 
-        <form>
+        <form className="button-tray">
           <input
             className="button"
             type="submit"
             value="subset 2"
             placeholder=""
-            onClick={this.props.handleSubmitButton}
-          />
+            onClick={this.props.handleSubmitButton} />
          </form>
-      </div>
     );
   }
 }

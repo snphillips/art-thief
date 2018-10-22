@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 export default class Button01 extends Component {
   render() {
     return (
-      <div className="Button">
 
-        <form>
+        <form className="button-tray">
           <input
             className="button"
             type="submit"
@@ -14,7 +13,7 @@ export default class Button01 extends Component {
             onClick={this.props.handleSubmitButton01}
           />
          </form>
-      </div>
+
     );
   }
 }
