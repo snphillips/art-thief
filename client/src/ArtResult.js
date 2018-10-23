@@ -5,10 +5,8 @@ export default class ArtResult extends Component {
   render() {
 
   // Some variables to make this page easier to read.
-  const date = this.props.parent_state.randomDate
-  const title = this.props.parent_state.randomTitle
   const imageURL = this.props.parent_state.imageURL
-  const url = this.props.parent_state.randomURL
+  const url = this.props.parent_state.learnMoreURL
 
     return (
       <div className="ArtResult" style={this.props.parent_state.displayArtResult}>

@@ -18,13 +18,18 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      serverSource: 'https://art-thief.herokuapp.com/cooperhewittapi',
-      // serverSource: 'http://localhost:8000/cooperhewittapi',
-      randomTitle: '',
-      randomDate: '',
-      randomImageURL: '',
+      // serverSource: 'https://art-thief.herokuapp.com/cooperhewittapi',
+      serverSource: 'http://localhost:8000/cooperhewittapi',
+
       imageURL: '',
+      learnMoreURL: '',
+
+      randomImageURL: '',
       randomURL: '',
+
+      jazzAgeImageURL: '',
+      jazzAgeLearnMoreURL: '',
+
       showModal: {"display": "none"},
       displayArtResult: {"display": "none"},
       displayLargeArt: {"display": "none"},
@@ -43,20 +48,35 @@ export default class App extends Component {
 // ***********************************
 // End of constructor
 // ***********************************
+
   cooperHewittRandomFromAPI() {
     // The source of data from the server is set in this.state above
-    axios.get(this.state.serverSource)
+    axios.get('http://localhost:8000/cooperhewittapi')
       .then( (response) => {
-        this.setState({randomTitle: response.data.object.title})
-        this.setState({randomDate: response.data.object.date})
         this.setState({imageURL: response.data.object.images[0].z.url})
-        this.setState({randomURL: response.data.object.url})
+        this.setState({learnMoreURL: response.data.object.url})
       })
       .catch(function (error) {
         console.log(error);
+      });
+  };
+
+  cooperHewittJazzAgeFromAPI() {
+
+      let randomNumber = Math.floor((Math.random() * 100) + 1);
+      console.log("randomNumber:", randomNumber)
+
+    axios.get('http://localhost:8000/cooperhewittapijazzage')
+      .then( (response) => {
+        this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
+        console.log("response length:", response.data.objects.length)
+        // this.setState({randomURL: response.data.object.url})
+      })
+      .catch(function (error) {
         console.log(error);
       });
   };
+
 
   handleSubmitButton01(event) {
     event.preventDefault();
@@ -69,7 +89,7 @@ export default class App extends Component {
   handleSubmitButton02(event) {
     event.preventDefault();
     console.log("button 02 clicked")
-    this.cooperHewittRandomFromAPI()
+    this.cooperHewittJazzAgeFromAPI()
     this.setState({displayArtResult: {"display": "block"}})
     this.setState({displayPlaceholderSquare: {"display": "none"}})
   };

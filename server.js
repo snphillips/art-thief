@@ -38,7 +38,7 @@ app.get('/', (req, res, next) => {
 
 
 // **********************************
-// Brooklyn Museum API Route
+// Brooklyn Museum API Route - not using at the moment
 // **********************************
 app.get("/brooklynmuseumapi", (req, res, next) => {
   axios.get("https://www.brooklynmuseum.org/api/v2/archive/image/?limit=10",
@@ -59,12 +59,26 @@ app.get("/brooklynmuseumapi", (req, res, next) => {
 });
 
 // **********************************
-// Cooper Hewitt Desgin API Route
+// Cooper Hewitt - random image
 // **********************************
 app.get('/cooperhewittapi', (req, res, next) => {
   axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getRandom&access_token=${process.env.COOPER_API_TOKEN}&has_image=1`)
   .then((response) => {
     return res.json(response.data)
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+});
+
+// **********************************
+// Cooper Hewitt - Jazz Age (396 objects)
+// **********************************
+app.get('/cooperhewittapijazzage', (req, res, next) => {
+  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=${process.env.COOPER_API_TOKEN}&exhibition_id=69117611&has_images=1`)
+  .then((response) => {
+    return res.json(response.data)
+    console.log("response length:", response.data.objects.length)
   })
   .catch((error) => {
     console.log(error)

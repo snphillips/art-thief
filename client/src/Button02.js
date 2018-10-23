@@ -8,7 +8,7 @@ export default class Button02 extends Component {
           <input
             className="button"
             type="submit"
-            value="subset 2"
+            value="jazz age"
             placeholder=""
             onClick={this.props.handleSubmitButton02} />
          </form>

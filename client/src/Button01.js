@@ -8,7 +8,7 @@ export default class Button01 extends Component {
           <input
             className="button"
             type="submit"
-            value="subset 1"
+            value="whole collection"
             placeholder="steal this art"
             onClick={this.props.handleSubmitButton01}
           />
