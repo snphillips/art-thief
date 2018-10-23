@@ -37,26 +37,6 @@ app.get('/', (req, res, next) => {
 
 
 
-// **********************************
-// Brooklyn Museum API Route - not using at the moment
-// **********************************
-app.get("/brooklynmuseumapi", (req, res, next) => {
-  axios.get("https://www.brooklynmuseum.org/api/v2/archive/image/?limit=10",
-    {headers:
-      {api_key: process.env.BROOKLYN_API_KEY}
-    })
-      .then( (response) => {
-      return res.json(response.data.data)
-      // TODO: none of the console.logs are showing up. Why?
-      console.log(response.data.data);
-      console.log("Caption:", response.data.data[0].caption);
-      console.log("Image Link:", response.data.data[0].largest_derivative_url);
-
-    })
-      .catch(error => {
-        console.log(error)
-    });
-});
 
 // **********************************
 // Cooper Hewitt - random image
@@ -76,6 +56,20 @@ app.get('/cooperhewittapi', (req, res, next) => {
 // **********************************
 app.get('/cooperhewittapijazzage', (req, res, next) => {
   axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=${process.env.COOPER_API_TOKEN}&exhibition_id=69117611&has_images=1`)
+  .then((response) => {
+    return res.json(response.data)
+    console.log("response length:", response.data.objects.length)
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+});
+
+// **********************************
+// Cooper Hewitt - Search by Tag
+// **********************************
+app.get('/searchbytag', (req, res, next) => {
+  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&tag=${this.tag}`)
   .then((response) => {
     return res.json(response.data)
     console.log("response length:", response.data.objects.length)

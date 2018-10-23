@@ -6,9 +6,10 @@ import axios from 'axios';
 // ===============================
 import Header from './Header';
 import PlaceholderSquare from './PlaceholderSquare';
-import Button01 from './Button01';
-import Button02 from './Button02';
-import Button03 from './Button03';
+import DropdownMenu from './DropdownMenu';
+// import Button01 from './Button01';
+// import Button02 from './Button02';
+// import Button03 from './Button03';
 import ArtResult from './ArtResult';
 import ImageModal from './ImageModal'
 
@@ -21,14 +22,16 @@ export default class App extends Component {
       // serverSource: 'https://art-thief.herokuapp.com/cooperhewittapi',
       serverSource: 'http://localhost:8000/cooperhewittapi',
 
-      imageURL: '',
-      learnMoreURL: '',
+      imageURL:'',
+      learnMoreURL:'',
 
-      randomImageURL: '',
-      randomURL: '',
+      randomImageURL:'',
+      randomURL:'',
 
-      jazzAgeImageURL: '',
-      jazzAgeLearnMoreURL: '',
+      jazzAgeImageURL:'',
+      jazzAgeLearnMoreURL:'',
+
+      value:'',
 
       showModal: {"display": "none"},
       displayArtResult: {"display": "none"},
@@ -41,6 +44,8 @@ export default class App extends Component {
     this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
     this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
     this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
+    this.handleDropdownSubmit = this.handleDropdownSubmit.bind(this);
     this.viewBigImage = this.viewBigImage.bind(this);
     this.closeBigImage = this.closeBigImage.bind(this);
 
@@ -48,7 +53,13 @@ export default class App extends Component {
 // ***********************************
 // End of constructor
 // ***********************************
-
+  handleSubmitButton01(event) {
+    event.preventDefault();
+    console.log("button 01 clicked")
+    this.cooperHewittRandomFromAPI()
+    this.setState({displayArtResult: {"display": "block"}})
+    this.setState({displayPlaceholderSquare: {"display": "none"}})
+  };
   cooperHewittRandomFromAPI() {
     // The source of data from the server is set in this.state above
     axios.get('http://localhost:8000/cooperhewittapi')
@@ -61,11 +72,17 @@ export default class App extends Component {
       });
   };
 
-  cooperHewittJazzAgeFromAPI() {
 
+  handleSubmitButton02(event) {
+    event.preventDefault();
+    console.log("button 02 clicked")
+    this.cooperHewittJazzAgeFromAPI()
+    this.setState({displayArtResult: {"display": "block"}})
+    this.setState({displayPlaceholderSquare: {"display": "none"}})
+  };
+  cooperHewittJazzAgeFromAPI() {
       let randomNumber = Math.floor((Math.random() * 100) + 1);
       console.log("randomNumber:", randomNumber)
-
     axios.get('http://localhost:8000/cooperhewittapijazzage')
       .then( (response) => {
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
@@ -77,22 +94,48 @@ export default class App extends Component {
       });
   };
 
+ //  ==================================
+ //  dropdown menu. First they choose
+ //  a value, then submit that value.
+ //  ==================================
+  handleDropdownChange(event) {
+    this.setState({value: event.target.value});
+  }
 
-  handleSubmitButton01(event) {
+  handleDropdownSubmit(event) {
+    console.log('the current lookup tag is: ' + this.state.value);
+    // insert axios call function
     event.preventDefault();
-    console.log("button 01 clicked")
-    this.cooperHewittRandomFromAPI()
-    this.setState({displayArtResult: {"display": "block"}})
-    this.setState({displayPlaceholderSquare: {"display": "none"}})
+  }
+
+
+  // handleDropdownChange(event) {
+  //   // event.preventDefault();
+  //   // console.log("event.target.value:", event.target.value)
+  //   this.cooperHewittSearchByTagFromAPI()
+  //   this.setState({"value": this.value})
+  //   this.setState({displayArtResult: {"display": "block"}})
+  //   this.setState({displayPlaceholderSquare: {"display": "none"}})
+  // };
+
+  cooperHewittSearchByTagFromAPI(event) {
+      let randomNumber = Math.floor((Math.random() * 100) + 1);
+      // this.setSate({tag: event.target.value})
+      // let tag = event.target.value
+      // console.log("randomNumber:", randomNumber)
+    axios.get(`http://localhost:8000/searchbytag`)
+      .then( (response) => {
+        this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
+        // console.log("response length:", response.data.objects.length)
+        // this.setState({randomURL: response.data.object.url})
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
-  handleSubmitButton02(event) {
-    event.preventDefault();
-    console.log("button 02 clicked")
-    this.cooperHewittJazzAgeFromAPI()
-    this.setState({displayArtResult: {"display": "block"}})
-    this.setState({displayPlaceholderSquare: {"display": "none"}})
-  };
+
+
 
   handleSubmitButton03(event) {
     event.preventDefault();
@@ -101,6 +144,7 @@ export default class App extends Component {
     this.setState({displayArtResult: {"display": "block"}})
     this.setState({displayPlaceholderSquare: {"display": "none"}})
   };
+
 
   viewBigImage(event) {
     console.log("image clicked")
@@ -123,9 +167,10 @@ export default class App extends Component {
         <Header />
         Click to reveal a random item from the Cooper Hewitt Museum:
         <br />
-        <Button01 handleSubmitButton01={this.handleSubmitButton01} />
-        <Button02 handleSubmitButton02={this.handleSubmitButton02} />
-        <Button03 handleSubmitButton03={this.handleSubmitButton03} />
+        <DropdownMenu handleDropdownChange={this.handleDropdownChange}
+                      handleDropdownSubmit={this.handleDropdownSubmit}
+                      parent_state={this.state}/>
+
         <PlaceholderSquare parent_state={this.state} />
         <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
         <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
@@ -133,5 +178,8 @@ export default class App extends Component {
     );
   }
 }
+        // <Button01 handleSubmitButton01={this.handleSubmitButton01} />
+        // <Button02 handleSubmitButton02={this.handleSubmitButton02} />
         // <ReactSpinner loading={this.props.loading} />
+        // <Button03 handleSubmitButton03={this.handleSubmitButton03} />
 
