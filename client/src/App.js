@@ -41,6 +41,7 @@ export default class App extends Component {
 
     // This binding is necessary to make `this` work in the callback
     this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
+    // this.cooperHewittSearchByTagFromAPI = this.cooperHewittSearchByTagFromAPI.bind(this);
     this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
     this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
     this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
@@ -96,33 +97,29 @@ export default class App extends Component {
 
  //  ==================================
  //  dropdown menu. First they choose
- //  a value, then submit that value.
+ //  a value/search tag in the Change event,
+ //  then submit that value.
  //  ==================================
   handleDropdownChange(event) {
     this.setState({value: event.target.value});
   }
 
   handleDropdownSubmit(event) {
+    // let tag = this.state.value
     console.log('the current lookup tag is: ' + this.state.value);
-    // insert axios call function
+    this.cooperHewittSearchByTagFromAPI()
+    this.setState({displayArtResult: {"display": "block"}})
+    this.setState({displayPlaceholderSquare: {"display": "none"}})
     event.preventDefault();
+
   }
 
-
-  // handleDropdownChange(event) {
-  //   // event.preventDefault();
-  //   // console.log("event.target.value:", event.target.value)
-  //   this.cooperHewittSearchByTagFromAPI()
-  //   this.setState({"value": this.value})
-  //   this.setState({displayArtResult: {"display": "block"}})
-  //   this.setState({displayPlaceholderSquare: {"display": "none"}})
-  // };
-
-  cooperHewittSearchByTagFromAPI(event) {
-      let randomNumber = Math.floor((Math.random() * 100) + 1);
+  cooperHewittSearchByTagFromAPI(tag) {
+    console.log("hello from cooperHewittSearchByTagFromAPI")
+      let randomNumber = Math.floor((Math.random() * 56) + 1);
       // this.setSate({tag: event.target.value})
       // let tag = event.target.value
-      // console.log("randomNumber:", randomNumber)
+      console.log("randomNumber:", randomNumber)
     axios.get(`http://localhost:8000/searchbytag`)
       .then( (response) => {
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})

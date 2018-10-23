@@ -58,7 +58,14 @@ a:hover {
 }
 
 #placeholder-square {
-  background-color: rgba(0,0,0,1);
+background: repeating-linear-gradient(
+  45deg,
+  black,
+  black 20px,
+  white 20px,
+  white 40px
+);
+  /*background-color: rgba(0,0,0,1);*/
   height: 380px;
   width: 380px;
 }
