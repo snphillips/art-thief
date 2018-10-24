@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
 export default class DropdownMenu extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class DropdownMenu extends Component {
               value={this.props.parent_state.value}
               onChange={this.props.handleDropdownChange}>
 
-        <option value="modernism">choose tag</option>
+        <option value="modernism">choose search keyword</option>
         <option value="abstract">abstract</option>
         <option value="advertising">advertising</option>
         <option value="geometric">geometric</option>
@@ -29,7 +30,7 @@ export default class DropdownMenu extends Component {
 
       <input type="submit"
              value="submit" />
-
+    <LoadingSpinner loading={this.props.loading} />
     </form>
 
     );

@@ -36,43 +36,11 @@ app.get('/', (req, res, next) => {
 })
 
 
-
-
-// **********************************
-// Cooper Hewitt - random image
-// **********************************
-app.get('/cooperhewittapi', (req, res, next) => {
-  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getRandom&access_token=${process.env.COOPER_API_TOKEN}&has_image=1`)
-  .then((response) => {
-    return res.json(response.data)
-  })
-  .catch((error) => {
-    console.log(error)
-  });
-});
-
-// **********************************
-// Cooper Hewitt - Jazz Age (396 objects)
-// **********************************
-app.get('/cooperhewittapijazzage', (req, res, next) => {
-  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=${process.env.COOPER_API_TOKEN}&exhibition_id=69117611&has_images=1`)
-  .then((response) => {
-    return res.json(response.data)
-    console.log("response length:", response.data.objects.length)
-  })
-  .catch((error) => {
-    console.log(error)
-  });
-});
-
-
-
 // **********************************
 // Get All - Search by Tag
 // **********************************
 app.get('/searchbytag/:value', (req, res, next) => {
   const { value } = req.params;
-
 
   axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&tag=${value}`)
   .then((response) => {
@@ -108,17 +76,6 @@ app.listen(port, () => {
   console.log(`Let's steal some art! Listening on port: ${port}, in ${app.get('env')} mode.`);
 }).on('error', console.error);
 
-
-// **********************************
-// Allow CORS - not using at the moment
-// **********************************
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Credentials", "true");
-//     res.header("Access-Control-Allow-Headers", "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With");
-//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//     next();
-// });
 
 
 module.exports = app;

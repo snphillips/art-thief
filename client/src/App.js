@@ -7,18 +7,15 @@ import axios from 'axios';
 import Header from './Header';
 import PlaceholderSquare from './PlaceholderSquare';
 import DropdownMenu from './DropdownMenu';
-// import Button01 from './Button01';
-// import Button02 from './Button02';
-// import Button03 from './Button03';
 import ArtResult from './ArtResult';
-import ImageModal from './ImageModal'
-
+import ImageModal from './ImageModal';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      loading: false, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:'',
@@ -65,15 +62,15 @@ export default class App extends Component {
   }
 
   cooperHewittSearchByTagFromAPI() {
+    this.setState({loading: true})
     // generate a random number to select from returned array of objects
     let randomNumber = Math.floor((Math.random() * 56) + 1);
     console.log("randomNumber:", randomNumber)
 
     axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
+        this.setState({loading: false});
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
-        // console.log("response length:", response.data.objects.length)
-        // this.setState({randomURL: response.data.object.url})
         this.setState({learnMoreURL: response.data.objects[randomNumber].url})
       })
       .catch(function (error) {
@@ -104,12 +101,12 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
-        Click a keyword to reveal a random item from the Cooper Hewitt Museum:
+        Reveal a random item from the Cooper Hewitt Museum:
         <br />
         <DropdownMenu handleDropdownChange={this.handleDropdownChange}
                       handleDropdownSubmit={this.handleDropdownSubmit}
+                      loading={this.state.loading}
                       parent_state={this.state}/>
-
         <PlaceholderSquare parent_state={this.state} />
         <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
         <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
@@ -117,8 +114,3 @@ export default class App extends Component {
     );
   }
 }
-        // <Button01 handleSubmitButton01={this.handleSubmitButton01} />
-        // <Button02 handleSubmitButton02={this.handleSubmitButton02} />
-        // <ReactSpinner loading={this.props.loading} />
-        // <Button03 handleSubmitButton03={this.handleSubmitButton03} />
-
