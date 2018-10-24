@@ -26,4 +26,5 @@ yarn-error.log*
 # Sarah's additions
 TODO.txt
 HOWTO.txt
+NOTUSING.txt
 .env

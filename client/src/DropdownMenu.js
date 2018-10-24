@@ -7,6 +7,7 @@ export default class DropdownMenu extends Component {
     <form onSubmit={this.props.handleDropdownSubmit} >
 
       <select id="tag"
+
               value={this.props.parent_state.value}
               onChange={this.props.handleDropdownChange}>
 

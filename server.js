@@ -65,16 +65,19 @@ app.get('/cooperhewittapijazzage', (req, res, next) => {
   });
 });
 
-// **********************************
-// Cooper Hewitt - Search by Tag
-// **********************************
-app.get('/searchbytag', (req, res, next) => {
 
-  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&tag=angular`)
+
+// **********************************
+// Get All - Search by Tag
+// **********************************
+app.get('/searchbytag/:value', (req, res, next) => {
+  const { value } = req.params;
+
+
+  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&tag=${value}`)
   .then((response) => {
-    console.log("hihi")
-    console.log("tag is:", this.tag)
     return res.json(response.data)
+    console.log("tag value is:", value)
     console.log("response length:", response.data.objects.length)
   })
   .catch((error) => {

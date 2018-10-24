@@ -40,9 +40,9 @@ export default class App extends Component {
     };
 
     // This binding is necessary to make `this` work in the callback
-    this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
+    // this.cooperHewittRandomFromAPI = this.cooperHewittRandomFromAPI.bind(this);
     // this.cooperHewittSearchByTagFromAPI = this.cooperHewittSearchByTagFromAPI.bind(this);
-    this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
+    // this.handleSubmitButton01 = this.handleSubmitButton01.bind(this);
     this.handleSubmitButton02 = this.handleSubmitButton02.bind(this);
     this.handleSubmitButton03 = this.handleSubmitButton03.bind(this);
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
@@ -54,25 +54,6 @@ export default class App extends Component {
 // ***********************************
 // End of constructor
 // ***********************************
-  handleSubmitButton01(event) {
-    event.preventDefault();
-    console.log("button 01 clicked")
-    this.cooperHewittRandomFromAPI()
-    this.setState({displayArtResult: {"display": "block"}})
-    this.setState({displayPlaceholderSquare: {"display": "none"}})
-  };
-  cooperHewittRandomFromAPI() {
-    // The source of data from the server is set in this.state above
-    axios.get('http://localhost:8000/cooperhewittapi')
-      .then( (response) => {
-        this.setState({imageURL: response.data.object.images[0].z.url})
-        this.setState({learnMoreURL: response.data.object.url})
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
 
   handleSubmitButton02(event) {
     event.preventDefault();
@@ -114,13 +95,12 @@ export default class App extends Component {
 
   }
 
-  cooperHewittSearchByTagFromAPI(tag) {
-    console.log("hello from cooperHewittSearchByTagFromAPI")
-      let randomNumber = Math.floor((Math.random() * 56) + 1);
-      // this.setSate({tag: event.target.value})
-      // let tag = event.target.value
-      console.log("randomNumber:", randomNumber)
-    axios.get(`http://localhost:8000/searchbytag`)
+  cooperHewittSearchByTagFromAPI() {
+    // generate a random number to select from returned array of objects
+    let randomNumber = Math.floor((Math.random() * 56) + 1);
+    console.log("randomNumber:", randomNumber)
+
+    axios.get(`http://localhost:8000/searchbytag/` +`${this.state.value}`)
       .then( (response) => {
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
         // console.log("response length:", response.data.objects.length)
