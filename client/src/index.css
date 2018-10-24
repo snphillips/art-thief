@@ -4,11 +4,14 @@ General Styling
 ================================*/
 body {
   background-color: white;
-  margin: 0;
-  padding: 1em;
+  /*background-color: pink;*/
+  padding-top: .5em;
+  /*padding-left: 2em;*/
+  margin: auto;
   font-family:sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 50em;
 }
 
 h1 {
@@ -95,8 +98,10 @@ background: repeating-linear-gradient(
   white 60px
 );
   /*background-color: rgba(0,0,0,1);*/
-  height: 380px;
-  width: 380px;
+  /*height: 380px;*/
+  height: 22em;
+  /*width: 380px;*/
+  width: 22em;
 }
 
 /*==============================
@@ -104,8 +109,12 @@ Image
 ================================*/
 .image-URL {
   cursor: pointer;
-  max-height: 380px;
-  max-width: 700px;
+  /*max-height: 380px;*/
+  max-height: 22em;
+  /*max-height: 70%;*/
+  /*max-width: 700px;*/
+  max-width: 22em;
+  /*height: auto;*/
   transition: 0.3s;
 }
 

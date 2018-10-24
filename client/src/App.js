@@ -23,9 +23,9 @@ export default class App extends Component {
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:'',
       learnMoreURL:'',
-      randomImageURL:'',
-      randomURL:'',
-      value:'',
+      // randomImageURL:'',
+      // randomURL:'',
+      value:'modernism', //starting with something in case user doesn't choose
       showModal: {"display": "none"},
       displayArtResult: {"display": "none"},
       displayLargeArt: {"display": "none"},
@@ -69,25 +69,30 @@ export default class App extends Component {
     let randomNumber = Math.floor((Math.random() * 56) + 1);
     console.log("randomNumber:", randomNumber)
 
-    axios.get(`https://art-thief.herokuapp.com/` +`${this.state.value}`)
+    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
-        console.log("response length:", response.data.objects.length)
-        this.setState({randomURL: response.data.object.url})
+        // console.log("response length:", response.data.objects.length)
+        // this.setState({randomURL: response.data.object.url})
+        this.setState({learnMoreURL: response.data.objects[randomNumber].url})
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
+
+ //  ==================================
+ //  The modal: the expanded image user clicks
+ //  ==================================
   viewBigImage(event) {
-    console.log("image clicked")
+    // console.log("image clicked")
     this.setState({showModal: {'display': "block"}})
     this.setState({BigImageURL: this.imageURL})
   }
 
   closeBigImage(event) {
-    console.log("close big image")
+    // console.log("close big image")
     this.setState({showModal: {'display': "none"}})
   }
 
