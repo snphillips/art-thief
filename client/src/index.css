@@ -28,14 +28,17 @@ a:hover {
   color: rgba(0,0,0,.5);
 }
 
+select {
+
+
+}
+
 .button-tray{
   display: inline;
 }
 
 .button {
   background-color: rgba(0,0,0,1);
-  /*background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);*/
-  /*background-color: #1c98e5;*/
   border: none;
   border-radius: 4px;
   color: white;
@@ -57,13 +60,42 @@ a:hover {
   transition: linear-gradient 400ms ease-out;
 }
 
+input, select {
+  background-color: rgba(0,0,0,1);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 100%;
+  cursor: pointer;
+  margin: 10px 15px 20px 0px;
+}
+
+/* The dropdown list */
+select {
+
+}
+
+input {
+  padding: 10px 24px;
+}
+
+input:hover {
+  background-color: rgba(0,0,0,.8);
+  /*not working*/
+  transition: linear-gradient 400ms ease-out;
+}
+
+
+
+
 #placeholder-square {
 background: repeating-linear-gradient(
   45deg,
   black,
-  black 20px,
-  white 20px,
-  white 40px
+  black 30px,
+  white 30px,
+  white 60px
 );
   /*background-color: rgba(0,0,0,1);*/
   height: 380px;
@@ -111,9 +143,7 @@ Image
 .image-URL-large {
   margin: auto;
   display: block;
-  /*width: 80%;*/
-  /*max-width: 100%;*/
-  /*max-height: 100%;*/
+
   /*not working*/
   animation-name: zoomsmall;
   animation-duration: 0.3s;
