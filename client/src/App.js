@@ -18,10 +18,10 @@ export default class App extends Component {
       loading: false, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
-      imageURL:'',
-      learnMoreURL:'',
-      value:'modernism', //starting with a value in case the user doesn't choose before submitting
-      showModal: {"display": "none"},
+      imageURL:"",
+      learnMoreURL:"",
+      value:"industrial design", //starting with a value in case the user doesn't choose before submitting
+      displayModal: {"display": "none"},
       displayArtResult: {"display": "none"},
       displayLargeArt: {"display": "none"},
       displayPlaceholderSquare: {"display": "block"},
@@ -50,7 +50,6 @@ export default class App extends Component {
   handleDropdownSubmit(event) {
     console.log('the current lookup tag is: ' + this.state.value);
     this.cooperHewittSearchByTagFromAPI()
-    this.setState({displayArtResult: {"display": "block"}})
     event.preventDefault();
 
   }
@@ -62,12 +61,15 @@ export default class App extends Component {
     console.log("randomNumber:", randomNumber)
 
     // ${this.state.value} is whatever keyword the user chose from the dropdown menu
-    // The response does the following: stops the loading spinner, removes the placeholder
-    // image, returns a random item (image, link url & description)
+    // The response does the following:
+    // 1) stops the loading spinner
+    // 2) removes the placeholder image
+    // 3) returns a random item (image, link url & description)
     axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
         this.setState({loading: false});
         this.setState({displayPlaceholderSquare: {"display": "none"}})
+        this.setState({displayArtResult: {"display": "block"}})
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
         this.setState({learnMoreURL: response.data.objects[randomNumber].url})
       })
@@ -77,17 +79,16 @@ export default class App extends Component {
       });
   };
 
-
  //  ==================================
  //  modal: the expanded image
  //  ==================================
   viewBigImage(event) {
-    this.setState({showModal: {'display': "block"}})
+    this.setState({displayModal: {'display': "block"}})
     this.setState({BigImageURL: this.imageURL})
   }
 
   closeBigImage(event) {
-    this.setState({showModal: {'display': "none"}})
+    this.setState({displayModal: {'display': "none"}})
   }
 
 
@@ -99,7 +100,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <div className="container">
-        <p>Get inspired by a random item from the Cooper Hewitt Museum:</p>
+        <p>Be inspired by a random item from the Cooper Hewitt Museum:</p>
           <DropdownMenu handleDropdownChange={this.handleDropdownChange}
                         handleDropdownSubmit={this.handleDropdownSubmit}
                         loading={this.state.loading}
@@ -108,6 +109,7 @@ export default class App extends Component {
           <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
           <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
         </div>
+        <footer>by: Sarah Phillips </footer>
       </div>
     );
   }

@@ -12,7 +12,7 @@ export default class DropdownMenu extends Component {
               value={this.props.parent_state.value}
               onChange={this.props.handleDropdownChange}>
 
-        <option value="modernism">choose search keyword</option>
+        <option value="industrial design">choose search keyword</option>
         <option value="abstract">abstract</option>
         <option value="advertising">advertising</option>
         <option value="angular">angular</option>

@@ -17,7 +17,8 @@ export default class ArtResult extends Component {
              className="image-URL"
              onClick={this.props.viewBigImage}/>
 
-        <div >
+        <span className="item-description"></span>
+        <div>
           <a href={learnMoreURL} className="learn-more-link">learn more about this item</a>
         </div>
 
