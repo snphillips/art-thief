@@ -18,7 +18,6 @@ export default class DropdownMenu extends Component {
         <option value="angular">angular</option>
         <option value="advertising">art nouveau</option>
         <option value="art deco">art deco</option>
-        <option value="decorative">decorative</option>
         <option value="floral">floral</option>
         <option value="geometric">geometric</option>
         <option value="modernism">modernism</option>

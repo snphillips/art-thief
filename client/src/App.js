@@ -9,6 +9,7 @@ import PlaceholderSquare from './PlaceholderSquare';
 import DropdownMenu from './DropdownMenu';
 import ArtResult from './ArtResult';
 import ImageModal from './ImageModal';
+import Footer from './Footer';
 
 export default class App extends Component {
   constructor(props) {
@@ -109,7 +110,7 @@ export default class App extends Component {
           <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
           <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
         </div>
-        <footer>by: Sarah Phillips </footer>
+        <Footer />
       </div>
     );
   }

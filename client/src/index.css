@@ -25,12 +25,18 @@ header {
 }
 
 footer {
-  font-size: 80%;
-  height: 2em;
+  height: 1.5em;
   position: absolute;
   bottom: 0;
-  padding-left: 4.8em;
-  padding-top: 1em;
+  padding-left: 4em;
+  padding-top: .5em;
+}
+
+span.footerLink a{
+  font-weight: bold;
+  font-size: 85%;
+  color: rgba(255, 255, 255, .8);
+  padding-right: 1em;
 }
 
 .container {
@@ -53,11 +59,11 @@ h1 {
 }
 
 a {
-  color: rgba(0,0,0,1);
+  /*color: rgba(0,0,0,1);*/
 }
 
 a:hover {
-  color: rgba(0,0,0,.5);
+  /*color: rgba(0,0,0,.5);*/
 }
 
 /*==============================
