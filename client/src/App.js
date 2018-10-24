@@ -20,8 +20,6 @@ export default class App extends Component {
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:'',
       learnMoreURL:'',
-      // randomImageURL:'',
-      // randomURL:'',
       value:'modernism', //starting with something in case user doesn't choose
       showModal: {"display": "none"},
       displayArtResult: {"display": "none"},
