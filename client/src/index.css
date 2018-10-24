@@ -14,6 +14,10 @@ body {
   /*width: 50em;*/
 }
 
+.container {
+  margin-left: 4em;
+}
+
 header, footer {
   background-color: black;
   color: white;
@@ -25,23 +29,21 @@ header {
 }
 
 footer {
-  height: 1.5em;
+  height: 1.4em;
   position: absolute;
   bottom: 0;
   padding-left: 4em;
   padding-top: .5em;
+  padding-bottom: .3em;
 }
 
 span.footerLink a{
   font-weight: bold;
-  font-size: 85%;
+  font-size: 80%;
   color: rgba(255, 255, 255, .8);
   padding-right: 1em;
 }
 
-.container {
-  margin-left: 4em;
-}
 
 p {
  margin-bottom: 0;
@@ -78,7 +80,7 @@ input, select {
   font-weight: bold;
   font-size: 100%;
   cursor: pointer;
-  margin: 20px 15px 20px 0px;
+  margin: 10px 15px 20px 0px;
 }
 
 select {
@@ -98,20 +100,30 @@ input:hover {
   background-color: rgba(0,0,0,.8);
 }
 
-#placeholder-square {
-background: repeating-linear-gradient(
-  45deg,
-  black,
-  black 30px,
-  white 30px,
-  white 60px
-);
-  /*background-color: rgba(0,0,0,1);*/
-  /*height: 380px;*/
+/*==============================
+Placeholder image & text
+================================*/
+div#placeholder-square {
   height: 22em;
-  /*width: 380px;*/
   width: 22em;
+  /*the black & white stripes*/
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,1),
+    rgba(0,0,0,1) 30px,
+    white 30px,
+    white 60px
+  );
+  vertical-align: bottom;
 }
+
+/* not using but keep just in case */
+h2.placeholderText {
+  margin: 0;
+  color: rgba(0,0,0,.7);
+  font-size: 450%;
+}
+
 
 /*==============================
 Image

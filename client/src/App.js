@@ -9,6 +9,7 @@ import PlaceholderSquare from './PlaceholderSquare';
 import DropdownMenu from './DropdownMenu';
 import ArtResult from './ArtResult';
 import ImageModal from './ImageModal';
+import InformationPanel from './InformationPanel';
 import Footer from './Footer';
 
 export default class App extends Component {
@@ -101,14 +102,15 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <div className="container">
-        <p>Be inspired by a random item from the Cooper Hewitt Museum:</p>
+        <p></p>
           <DropdownMenu handleDropdownChange={this.handleDropdownChange}
                         handleDropdownSubmit={this.handleDropdownSubmit}
                         loading={this.state.loading}
                         parent_state={this.state}/>
           <PlaceholderSquare parent_state={this.state} />
-          <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
           <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
+          <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
+          <InformationPanel parent_state={this.state} />
         </div>
         <Footer />
       </div>
