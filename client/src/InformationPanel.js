@@ -7,6 +7,7 @@ export default class InformationPanel extends Component {
 
         <aside className="info-panel">
           <br/>
+          <p style={this.props.parent_state.displayIntroMessage}className="intro-message">Be inspired by random items from the Cooper Hewitt Museum</p>
           <p style={this.props.parent_state.displayArtResultInfo}className="item-title">{this.props.parent_state.itemTitle}</p>
           <p style={this.props.parent_state.displayArtResultInfo}className="item-medium">{this.props.parent_state.itemMedium}</p>
           <p style={this.props.parent_state.displayArtResultInfo}className="item-information">{this.props.parent_state.itemInfo}</p>

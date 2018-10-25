@@ -7,8 +7,8 @@ export default class Header extends Component {
 
         <header>
           <span className="header">Art Thief</span>
-          <span className="intro-message">Be inspired by random items from the Cooper Hewitt Museum</span>
         </header>
     );
   }
 }
+          // <span className="intro-message">Be inspired by random items from the Cooper Hewitt Museum</span>

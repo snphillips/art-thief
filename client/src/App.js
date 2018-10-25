@@ -27,10 +27,10 @@ export default class App extends Component {
       itemInfo: "",
       learnMoreURL:"",
       value:"industrial design", //starting with a value in case the user doesn't choose before submitting
-      displayModal: {"display": "none"},
       displayArtResultImage: {"display": "none"},
-      displayArtResultInfo: {"display": "none"},
-      // displayLearnMoreURL: {"display": "none"},
+      displayArtResultInfo: {"display": "none"}, // this refers to all image details like title, materials, url etc.
+      displayModal: {"display": "none"},
+      displayIntroMessage: {"display": "block"},
       displayLargeArt: {"display": "none"},
       displayPlaceholderSquare: {"display": "block"},
     };
@@ -57,52 +57,23 @@ export default class App extends Component {
 
   handleDropdownSubmit(event) {
     this.setState({displayArtResultInfo: {"display": "none"}})
+    this.setState({displayIntroMessage: {"display": "none"}})
     this.cooperHewittSearchByTagFromAPI()
     event.preventDefault();
 
   }
 
-  // cooperHewittSearchByTagFromAPI() {
-  //   this.setState({loading: true})
-  //   // generate a random number to select from returned array of objects
-  //   let randomNumber = Math.floor((Math.random() * 56) + 1);
-  //   console.log("randomNumber:", randomNumber)
-
-  //   // ${this.state.value} is whatever keyword the user chose from the dropdown menu
-  //   // The response does the following:
-  //   // 1) stops the loading spinner
-  //   // 2) removes the placeholder image
-  //   // 3) returns a random item (image, link url & description)
-  //   axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
-  //     .then( (response) => {
-  //       this.setState({loading: false});
-  //       this.setState({displayPlaceholderSquare: {"display": "none"}})
-  //       this.setState({displayArtResultImage: {"display": "block"}})
-  //       // this.setState({displayLearnMoreURL: {"display": "block"}})
-  //       this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
-  //       this.setState({itemTitle: response.data.objects[randomNumber].title})
-  //       this.setState({itemMedium: response.data.objects[randomNumber].medium})
-  //       this.setState({itemInfo: response.data.objects[randomNumber].label_text})
-  //       this.setState({learnMoreURL: response.data.objects[randomNumber].url})
-  //       this.setState({displayArtResultInfo: {"display": "block"}})
-  //     })
-  //     .catch(function (error) {
-  //       this.setState({showPlaceholderImage: true});
-  //       console.log(error);
-  //     });
-  // };
 
   cooperHewittSearchByTagFromAPI() {
     this.setState({loading: true})
-
 
     // ${this.state.value} is whatever keyword the user chooses from the dropdown menu
     // The response does the following:
     // 1) stops the loading spinner
     // 2) removes the placeholder image
     // 3) returns a random item (image, title, description & link url)
-    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
-    // axios.get(`http://localhost:8000/searchbytag/`+`${this.state.value}`)
+    // axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
+    axios.get(`http://localhost:8000/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
 
         // Using the _Lodash library to first shuffle the response array, to

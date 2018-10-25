@@ -4,14 +4,10 @@ General Site-wide Styling
 ================================*/
 body {
   background-color: white;
-  /*background-color: pink;*/
-  /*padding-top: .5em;*/
-  /*padding-left: 2em;*/
   margin: auto;
   font-family:sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*width: 50em;*/
 }
 
 .container {
@@ -50,9 +46,10 @@ p {
 }
 
 .header {
-  color: white;
+  /*color: white;*/
   /*display: block;*/
   font-size: 240%;
+  /*font-size: 3.5vw;*/
   font-family: 'Kurale', serif;
   margin-top: 0px;
   padding-left: 2em;
@@ -61,11 +58,14 @@ p {
   margin-right: .75em;
 }
 
-.intro-message {
+.intro-message-header {
+  /*font-size: 1.5vw;*/
   color: black;
   color: white;
   font-weight: bold;
   display: inline;
+  line-height: 80%;
+  /*white-space: nowrap;*/
 }
 
 a {
@@ -83,14 +83,14 @@ aside {
   left: 30em;
   top: 3.3em;
   width: 25em;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
-.intro-messageOG {
+.intro-message {
   /*background-color: rgba(0,0,0,1);*/
   color: black;
   font-weight: bold;
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
   /*height: 110px;*/
   /*width: 20em;*/
   /*border-top: 2em solid black;*/
@@ -170,12 +170,8 @@ h2.placeholderText {
 ================================*/
 .image-URL {
   cursor: pointer;
-  /*max-height: 380px;*/
   max-height: 22em;
-  /*max-height: 70%;*/
-  /*max-width: 700px;*/
   max-width: 22em;
-  /*height: auto;*/
   transition: 0.3s;
 }
 
@@ -196,7 +192,7 @@ h2.placeholderText {
   width: 100%;
   height: 100%;
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(255,255,255); /* Fallback color: white;
+  background-color: rgba(255,255,255, 1); /* Fallback color: white;
   /*background-color: rgba(255,255,255,0.9); /* White w/ opacity */
 
 /* Add Animation - Zoom in the Modal */
@@ -214,18 +210,8 @@ h2.placeholderText {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
-
-
-  /*not working*/
-  /*animation-name: zoomsmall;*/
-  /*animation-duration: 0.3s;*/
 }
 
-/*not working*/
-@keyframes zoomsmall {
-    from {transform:scale(1)}
-    to {transform:scale(0)}
-}
 
 /*The spinner. This is an nmp package.*/
 .sweet-loading {

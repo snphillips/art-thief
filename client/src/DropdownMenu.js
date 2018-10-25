@@ -14,15 +14,17 @@ export default class DropdownMenu extends Component {
 
         <option value="exoticism">choose search keyword</option>
         <option value="abstract">abstract</option>
-        <option value="advertising">advertising</option>
         <option value="angular">angular</option>
-        <option value="advertising">art nouveau</option>
+        <option value="architechts">architechts</option>
         <option value="art deco">art deco</option>
-        <option value="circles">circles</option>
+        <option value="art nouveau">art nouveau</option>
+        <option value="circular">circular</option>
         <option value="geometric">geometric</option>
+        <option value="graphic designers">graphic design</option>
         <option value="industrial design">industrial design</option>
+        <option value="intricate">intricate</option>
         <option value="modernism">modernism</option>
-        <option value="pattern">pattern</option>
+        <option value="posters">posters</option>
         <option value="simple">simple</option>
         <option value="textile design">textile desgin</option>
 

@@ -9,6 +9,16 @@ const app = express();
 
 const logger = require('morgan');
 
+const axios = require('axios');
+
+// **********************************
+// Redis & Response-time
+// npm packages
+// **********************************
+const responseTime = require('response-time')
+var redis = require("redis"),
+      client = redis.createClient();
+
 
 // **********************************
 // CORS
@@ -21,7 +31,6 @@ app.use(cors())
 // Allows our forms to work)
 const bodyParser = require('body-parser');
 
-const axios = require('axios');
 
 // set the port, either from an environmental variable or manually
 const port = process.env.PORT || 8000;
@@ -44,14 +53,17 @@ app.get('/searchbytag/:value', (req, res, next) => {
 
   axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&per_page=300&tag=${value}`)
   .then((response) => {
-    return res.json(response.data)
-    console.log("tag value is:", value)
     console.log("response length:", response.data.objects.length)
+
+    return res.json(response.data)
   })
   .catch((error) => {
     console.log(error)
+    res.send(`I cant' find any items right now.`);
   });
 });
+
+
 
 
 // **********************************
@@ -68,6 +80,12 @@ app.use((req, res, next) => {
 
 
 app.use(bodyParser.json());
+
+// **********************************
+// Middleware that adds a X-Response-Time
+// header to responses.
+// **********************************
+app.use(responseTime());
 
 // **********************************
 // Port
