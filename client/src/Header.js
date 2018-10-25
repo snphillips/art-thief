@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
 
         <header>
-          <span className="header">Art Thief</span>
+          <h1 className="header"><a href="/" className="header-link">Art Thief</a></h1>
         </header>
     );
   }

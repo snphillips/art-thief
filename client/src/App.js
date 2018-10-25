@@ -18,8 +18,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      // loading: false, // the loading spinner
-      loading: true, // the loading spinner
+      loading: false, // the loading spinner
+      // loading: true, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:"",
@@ -27,7 +27,7 @@ export default class App extends Component {
       itemMedium: "",
       itemInfo: "",
       learnMoreURL:"",
-      value:"industrial design", //starting with a value in case the user doesn't choose before submitting
+      value:"exoticism", //starting with a value in case the user doesn't choose before submitting
       displayArtResultImage: {"display": "none"},
       displayArtResultInfo: {"display": "none"}, // this refers to all image details like title, materials, url etc.
       displayModal: {"display": "none"},
@@ -117,7 +117,8 @@ export default class App extends Component {
     return (
       <div className="App">
 
-        <Header />
+          <Header />
+
 
         <div className="container">
           <div className="row">
@@ -142,7 +143,10 @@ export default class App extends Component {
           </div>
         </div>
 
-        <Footer />
+
+          <Footer />
+
+
       </div>
     );
   }
