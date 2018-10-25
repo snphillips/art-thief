@@ -12,6 +12,10 @@ export default class InformationPanel extends Component {
           <p style={this.props.parent_state.displayArtResultInfo}className="item-medium">{this.props.parent_state.itemMedium}</p>
           <p style={this.props.parent_state.displayArtResultInfo}className="item-information">{this.props.parent_state.itemInfo}</p>
           <p style={this.props.parent_state.displayArtResultInfo}><a className="learn-more-link" href={this.props.parent_state.learnMoreURL}>learn more about this item</a></p>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
         </aside>
     );
   }

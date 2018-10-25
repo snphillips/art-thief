@@ -20,22 +20,46 @@ p {
  margin-bottom: 0;
 }
 
-
 /*==============================
 Header
 ================================*/
 header {
-  height: 1.8em;
-  font-size: 200%;
+  /*height: 1.8em;*/
   font-family: 'Kurale', serif;
   margin-top: 0px;
-  padding-left: 10%;
+  margin-bottom: 5pt;
+  padding-bottom: 2pt;
+  padding-left: 9%;
   margin-right: .75em;
 }
 
-a.header-link {
+ a.header-link {
+  font-size: 80%;
   color: white;
- }
+  font-weight: bold;
+  position: relative;
+  text-decoration: none; /*This removes the default underline*/
+}
+
+/* The underline animation */
+a.header-link:after{
+  content: '';
+  position: absolute;
+  width: 0; height: 2pt;
+  display: block;
+  margin-top: 1pt;
+  right: 0;
+   background: white;
+  transition: width .4s ease;
+  -webkit-transition: width .4s ease;
+}
+
+a.header-link:hover:after{
+  width: 100%;
+  left: 0;
+  background: white;
+}
+
 
 /* Not using but keep- might need if you change your mind*/
 .intro-message-header {
@@ -51,7 +75,7 @@ dropdown menu(select) & submit(input)
 ================================*/
 form {
   max-width: 27em;
-  margin-top: 1em;
+  /*margin-top: 1em;*/
 }
 
 select, input {
@@ -116,16 +140,15 @@ h2.placeholderText {
   color: rgba(0,0,0,.7);
   font-size: 450%;
 }
-
 /*==============================
  Museum Image
 ================================*/
 .image-URL {
   cursor: pointer;
   max-height: 30%;
-  max-height: 22em;
+  max-height: 300pt;
   max-width: 30%;
-  max-width: 22em;
+  max-width: 300pt;
   margin-top: 1em;
   transition: 0.3s;
 }
@@ -170,7 +193,7 @@ h2.placeholderText {
 aside information panel
 ================================*/
 aside {
-margin-left: 1em;
+margin-left: 10pt;
 }
 
 .intro-message {
@@ -190,19 +213,41 @@ h2.item-title {
   margin-bottom: 1em;
 }
 
+
 a.learn-more-link {
   color: black;
-  text-decoration: underline;
-  padding-bottom: 5em;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none; /*This removes the default underline*/
+  /*color: rgba(255,255,255,.7); */
 }
 
+
+/* The underline animation */
+a.learn-more-link:after{
+  content: '';
+  position: absolute;
+  width: 0; height: 10px;
+  display: block;
+  margin-top: 4px;
+  right: 0;
+   background: black;
+  transition: width .4s ease;
+  -webkit-transition: width .4s ease;
+}
+
+a.learn-more-link:hover:after{
+  width: 100%;
+  left: 0;
+  background: black;
+}
 /*==============================
  Footer
 ================================*/
 footer {
   position: fixed;
   bottom: 0;
-  padding-left: 5%;
+  padding-left: 1%;
   padding-top: .5em;
   padding-bottom: .3em;
 }
@@ -210,8 +255,8 @@ footer {
 span.footerLink a{
   font-weight: bold;
   font-size: 80%;
-  color: rgba(255, 255, 255, .8);
-  padding-right: 2%;
+  color: rgba(255, 255, 255, .7);
+  padding-right: 1%;
 }
 
 
