@@ -8,3 +8,8 @@ _Art Thief_ allows users to view random images from the Cooper Hewitt Museum's c
 
 _Art Thief_ is a project to experiment with the Cooper Hewitt Museum's API.
 https://collection.cooperhewitt.org/api/
+
+-node
+-express
+-react
+-axios
