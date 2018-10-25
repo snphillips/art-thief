@@ -1,6 +1,6 @@
 
 /*==============================
-General Site-wide Styling
+General Styling
 ================================*/
 body {
   background-color: white;
@@ -10,160 +10,82 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  margin-left: 4em;
-}
-
 header, footer {
   background-color: black;
   color: white;
   width: 100%;
 }
 
-header {
-  height: 4em;
-}
-
-footer {
-  height: 1.4em;
-  position: absolute;
-  bottom: 0;
-  padding-left: 4em;
-  padding-top: .5em;
-  padding-bottom: .3em;
-}
-
-span.footerLink a{
-  font-weight: bold;
-  font-size: 80%;
-  color: rgba(255, 255, 255, .8);
-  padding-right: 1em;
-}
-
-
 p {
  margin-bottom: 0;
 }
 
-.header {
-  /*color: white;*/
-  /*display: block;*/
+
+/*==============================
+Header
+================================*/
+header {
+  height: 1.7em;
   font-size: 240%;
   /*font-size: 3.5vw;*/
   font-family: 'Kurale', serif;
   margin-top: 0px;
   padding-left: 2em;
-
-  /*margin-bottom: 0px;*/
   margin-right: .75em;
 }
 
+/* Not using but keep- might need if you change your mind*/
 .intro-message-header {
-  /*font-size: 1.5vw;*/
   color: black;
   color: white;
   font-weight: bold;
   display: inline;
   line-height: 80%;
-  /*white-space: nowrap;*/
 }
 
-a {
-  /*color: rgba(0,0,0,1);*/
-}
-
-a:hover {
-  /*color: rgba(0,0,0,.5);*/
-}
 /*==============================
-aside information panel
+dropdown menu(select) & submit button
 ================================*/
-aside {
-  position: absolute;
-  left: 30em;
-  top: 3.3em;
-  width: 25em;
-  /*overflow: auto;*/
+form {
+  max-width: 22.5em;
 }
 
-.intro-message {
-  /*background-color: rgba(0,0,0,1);*/
-  color: black;
-  font-weight: bold;
-  padding-bottom: 1.5em;
-  /*height: 110px;*/
-  /*width: 20em;*/
-  /*border-top: 2em solid black;*/
-  border-bottom: 2em solid black;
-}
-
-
-.item-title {
-  font-weight: bold;
-}
-
-.item-information {
-}
-
-a.learn-more-link {
-  color: black;
-}
-/*==============================
-dropdown menu(input) & submit button
-================================*/
-input, select {
-  background: transparent;
+select, input {
   background-color: rgba(0,0,0,1);
-  border: none;
   color: white;
+  border: none;
   border-radius: 4px;
   font-weight: bold;
   font-size: 100%;
   cursor: pointer;
-  margin: 10px 15px 20px 0px;
+  margin-top: 1em;
 }
 
 select {
   border: 9px solid black;
-}
-
-#tag {
-  width: 15em;
-  /*padding-right: 30px;*/
+  margin-right: 1em;
 }
 
 input {
-  padding: 10px 22px;
+  padding: 9px 22px;
 }
 
 input:hover {
   background-color: rgba(0,0,0,.8);
 }
 
-/*==============================
-Placeholder image & text
-================================*/
-div#placeholder-square {
-  height: 22em;
-  width: 22em;
-  /*the black & white stripes*/
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(0,0,0,1),
-    rgba(0,0,0,1) 1.5em,
-    white 1.5em,
-    white 3em
-  );
-  vertical-align: bottom;
+
+#tag {
+  width: 15em;
 }
 
-/* not using but keep just in case */
-h2.placeholderText {
-  margin: 0;
-  color: rgba(0,0,0,.7);
-  font-size: 450%;
+/* The loading spinner. This is an nmp package.*/
+.sweet-loading {
+  /*margin-top: 20px;*/
+  display: inline-block;
+  position: relative;
+  top: 10px;
 }
-
 
 /*==============================
  Image
@@ -172,6 +94,7 @@ h2.placeholderText {
   cursor: pointer;
   max-height: 22em;
   max-width: 22em;
+  margin-top: 1em;
   transition: 0.3s;
 }
 
@@ -213,12 +136,77 @@ h2.placeholderText {
 }
 
 
-/*The spinner. This is an nmp package.*/
-.sweet-loading {
-  /*margin-top: 20px;*/
-  display: inline-block;
+/*==============================
+aside information panel
+================================*/
+aside {
+margin-left: 1em;
+}
+
+.intro-message {
+  color: black;
+  font-size: 90%;
+  font-weight: bold;
+  padding-bottom: 1.5em;
+  border-bottom: 2em solid black;
+}
+
+h2.item-title {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.item-information, .item-medium {
+  margin-bottom: 1em;
+}
+
+a.learn-more-link {
+  color: black;
+  text-decoration: underline;
+}
+
+/*==============================
+Placeholder image & text
+================================*/
+div#placeholder-square {
+  height: 22em;
+  width: 22em;
+  /*the black & white stripes*/
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,1),
+    rgba(0,0,0,1) 1.5em,
+    white 1.5em,
+    white 3em
+  );
+  vertical-align: bottom;
+}
+
+/* not using but keep just in case */
+h2.placeholderText {
+  margin: 0;
+  color: rgba(0,0,0,.7);
+  font-size: 450%;
+}
+
+/*==============================
+ Footer
+================================*/
+footer {
+  height: 2em;
   position: relative;
-  top: 10px;
+  position: absolute;
+  bottom: 0;
+  padding-left: 4em;
+  padding-top: .5em;
+  padding-bottom: .3em;
+}
+
+span.footerLink a{
+  font-weight: bold;
+  font-size: 80%;
+  color: rgba(255, 255, 255, .8);
+  padding-right: 1em;
 }
 
 

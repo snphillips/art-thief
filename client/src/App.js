@@ -72,19 +72,18 @@ export default class App extends Component {
     // 1) stops the loading spinner
     // 2) removes the placeholder image
     // 3) returns a random item (image, title, description & link url)
-    // axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
-    axios.get(`http://localhost:8000/searchbytag/`+`${this.state.value}`)
+    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
+    // axios.get(`http://localhost:8000/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
 
-        // Using the _Lodash library to first shuffle the response array, to
-        // later pluck the first item from the response array.
+        // Using the _Lodash library to first shuffle the response array,
+        // in order to pluck the first item from the response array.
         response.data.objects = _Lodash.shuffle(response.data.objects)
         console.log(response.data.objects)
 
         this.setState({loading: false});
         this.setState({displayPlaceholderSquare: {"display": "none"}})
         this.setState({displayArtResultImage: {"display": "block"}})
-        // this.setState({displayLearnMoreURL: {"display": "block"}})
         this.setState({imageURL: response.data.objects[0].images[0].z.url})
         this.setState({itemTitle: response.data.objects[0].title})
         this.setState({itemMedium: response.data.objects[0].medium})
@@ -116,18 +115,32 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Header />
+
         <div className="container">
-        <p></p>
-          <DropdownMenu handleDropdownChange={this.handleDropdownChange}
-                        handleDropdownSubmit={this.handleDropdownSubmit}
-                        loading={this.state.loading}
-                        parent_state={this.state}/>
-          <PlaceholderSquare parent_state={this.state} />
-          <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
-          <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
-          <InformationPanel parent_state={this.state} />
+          <div className="row">
+
+              <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+                <DropdownMenu handleDropdownChange={this.handleDropdownChange}
+                              handleDropdownSubmit={this.handleDropdownSubmit}
+                              loading={this.state.loading}
+                              parent_state={this.state}/>
+                <PlaceholderSquare parent_state={this.state} />
+                <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
+                <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
+               </div>
+
+               <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+                 <InformationPanel parent_state={this.state} />
+
+               </div>
+
+          </div>
         </div>
+
         <Footer />
       </div>
     );
