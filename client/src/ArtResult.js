@@ -13,10 +13,10 @@ export default class ArtResult extends Component {
              className="image-URL"
              onClick={this.props.viewBigImage}/>
 
-        <span className="item-description"></span>
 
       </div>
     );
   }
 }
 
+        // <span className="item-description"></span>

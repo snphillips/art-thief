@@ -21,10 +21,14 @@ export default class App extends Component {
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:"",
+      itemTitle: "",
+      itemMedium: "",
+      itemInfo: "",
       learnMoreURL:"",
       value:"industrial design", //starting with a value in case the user doesn't choose before submitting
       displayModal: {"display": "none"},
       displayArtResult: {"display": "none"},
+      // displayLearnMoreURL: {"display": "none"},
       displayLargeArt: {"display": "none"},
       displayPlaceholderSquare: {"display": "block"},
     };
@@ -72,7 +76,11 @@ export default class App extends Component {
         this.setState({loading: false});
         this.setState({displayPlaceholderSquare: {"display": "none"}})
         this.setState({displayArtResult: {"display": "block"}})
+        // this.setState({displayLearnMoreURL: {"display": "block"}})
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
+        this.setState({itemTitle: response.data.objects[randomNumber].title})
+        this.setState({itemMedium: response.data.objects[randomNumber].medium})
+        this.setState({itemInfo: response.data.objects[randomNumber].gallery_text})
         this.setState({learnMoreURL: response.data.objects[randomNumber].url})
       })
       .catch(function (error) {

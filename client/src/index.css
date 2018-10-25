@@ -49,15 +49,16 @@ p {
  margin-bottom: 0;
 }
 
-h1 {
+.header {
   color: white;
   /*display: block;*/
   font-size: 240%;
   font-family: 'Kurale', serif;
   margin-top: 0px;
   padding-left: 2em;
+
   /*margin-bottom: 0px;*/
-  /*margin-right: 1%;*/
+  margin-right: .75em;
 }
 
 a {
@@ -67,7 +68,50 @@ a {
 a:hover {
   /*color: rgba(0,0,0,.5);*/
 }
+/*==============================
+aside information panel
+================================*/
+aside {
+  position: absolute;
+  left: 30em;
+  top: 3.3em;
+  width: 25em;
+}
 
+.intro-messageOG {
+  /*background-color: rgba(0,0,0,1);*/
+  color: black;
+  font-weight: bold;
+  padding-bottom: 1em;
+  /*height: 110px;*/
+  /*width: 20em;*/
+  /*border-top: 2em solid black;*/
+  border-bottom: 2em solid black;
+}
+
+.intro-message {
+  /*background-color: rgba(0,0,0,1);*/
+  color: black;
+  color: white;
+  font-weight: bold;
+  display: inline;
+  /*padding-bottom: 1em;*/
+  /*height: 110px;*/
+  /*width: 20em;*/
+  /*border-top: 2em solid black;*/
+  /*border-bottom: 2em solid black;*/
+}
+
+.item-title {
+  font-weight: bold;
+}
+
+.item-information {
+}
+
+.learn-more-link {
+
+}
 /*==============================
 dropdown menu(input) & submit button
 ================================*/
@@ -110,9 +154,9 @@ div#placeholder-square {
   background: repeating-linear-gradient(
     45deg,
     rgba(0,0,0,1),
-    rgba(0,0,0,1) 30px,
-    white 30px,
-    white 60px
+    rgba(0,0,0,1) 2em,
+    white 2em,
+    white 4em
   );
   vertical-align: bottom;
 }
@@ -180,13 +224,6 @@ Image
 @keyframes zoomsmall {
     from {transform:scale(1)}
     to {transform:scale(0)}
-}
-
-.learn-more-link {
-  text-decoration: none;
-  font-size: 80%;
-  /*font-family: 'Kurale', serif;*/
-  /*font-style: italic;*/
 }
 
 /*The spinner. This is an nmp package.*/

@@ -6,10 +6,13 @@ export default class InformationPanel extends Component {
     return (
 
         <aside className="info-panel">
-          <p className="intro-message">Be inspired by a random item from the Cooper Hewitt Museum.</p>
-          <p className="item-information"></p>
-          <p><a href={this.props.parent_state.learnMoreURL} className="learn-more-link">learn more about this item</a></p>
+          <br/>
+          <p className="item-title">{this.props.parent_state.itemTitle}</p>
+          <p className="item-medium">{this.props.parent_state.itemMedium}</p>
+          <p className="item-information">{this.props.parent_state.itemInfo}</p>
+          <p style={this.props.parent_state.displayArtResult}><a className="learn-more-link" href={this.props.parent_state.learnMoreURL}>learn more about this item</a></p>
         </aside>
     );
   }
 }
+          // <p className="intro-message">Be inspired by a random item from the Cooper Hewitt Museum.</p>
