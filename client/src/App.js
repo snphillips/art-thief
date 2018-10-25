@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import _Lodash from 'lodash';
 
 // ===============================
 // Importing Pages
@@ -61,11 +62,39 @@ export default class App extends Component {
 
   }
 
+  // cooperHewittSearchByTagFromAPI() {
+  //   this.setState({loading: true})
+  //   // generate a random number to select from returned array of objects
+  //   let randomNumber = Math.floor((Math.random() * 56) + 1);
+  //   console.log("randomNumber:", randomNumber)
+
+  //   // ${this.state.value} is whatever keyword the user chose from the dropdown menu
+  //   // The response does the following:
+  //   // 1) stops the loading spinner
+  //   // 2) removes the placeholder image
+  //   // 3) returns a random item (image, link url & description)
+  //   axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
+  //     .then( (response) => {
+  //       this.setState({loading: false});
+  //       this.setState({displayPlaceholderSquare: {"display": "none"}})
+  //       this.setState({displayArtResultImage: {"display": "block"}})
+  //       // this.setState({displayLearnMoreURL: {"display": "block"}})
+  //       this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
+  //       this.setState({itemTitle: response.data.objects[randomNumber].title})
+  //       this.setState({itemMedium: response.data.objects[randomNumber].medium})
+  //       this.setState({itemInfo: response.data.objects[randomNumber].label_text})
+  //       this.setState({learnMoreURL: response.data.objects[randomNumber].url})
+  //       this.setState({displayArtResultInfo: {"display": "block"}})
+  //     })
+  //     .catch(function (error) {
+  //       this.setState({showPlaceholderImage: true});
+  //       console.log(error);
+  //     });
+  // };
+
   cooperHewittSearchByTagFromAPI() {
     this.setState({loading: true})
-    // generate a random number to select from returned array of objects
-    let randomNumber = Math.floor((Math.random() * 56) + 1);
-    console.log("randomNumber:", randomNumber)
+
 
     // ${this.state.value} is whatever keyword the user chose from the dropdown menu
     // The response does the following:
@@ -74,19 +103,25 @@ export default class App extends Component {
     // 3) returns a random item (image, link url & description)
     axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
+
+
+        response.data.objects = _Lodash.shuffle(response.data.objects)
+        console.log(response.data.objects)
+
+
+
         this.setState({loading: false});
         this.setState({displayPlaceholderSquare: {"display": "none"}})
         this.setState({displayArtResultImage: {"display": "block"}})
         // this.setState({displayLearnMoreURL: {"display": "block"}})
-        this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
-        this.setState({itemTitle: response.data.objects[randomNumber].title})
-        this.setState({itemMedium: response.data.objects[randomNumber].medium})
-        this.setState({itemInfo: response.data.objects[randomNumber].label_text})
-        this.setState({learnMoreURL: response.data.objects[randomNumber].url})
+        this.setState({imageURL: response.data.objects[0].images[0].z.url})
+        this.setState({itemTitle: response.data.objects[0].title})
+        this.setState({itemMedium: response.data.objects[0].medium})
+        this.setState({itemInfo: response.data.objects[0].label_text})
+        this.setState({learnMoreURL: response.data.objects[0].url})
         this.setState({displayArtResultInfo: {"display": "block"}})
       })
       .catch(function (error) {
-        this.setState({showPlaceholderImage: true});
         console.log(error);
       });
   };

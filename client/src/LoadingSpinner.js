@@ -11,7 +11,6 @@ const override = css`
 
 export default class LoadingSpinner extends React.Component {
   render() {
-    console.log("loading:", this.props.loading)
     return (
       <span className='sweet-loading'>
         <ScaleLoader
