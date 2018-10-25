@@ -33,7 +33,7 @@ export default class DropdownMenu extends Component {
       <input type="submit"
              value="submit" />
 
-    <LoadingSpinner loading={this.props.loading} />
+      <LoadingSpinner loading={this.props.loading} />
 
     </form>
 

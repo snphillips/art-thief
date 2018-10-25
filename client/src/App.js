@@ -18,7 +18,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      loading: false, // the loading spinner
+      // loading: false, // the loading spinner
+      loading: true, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:"",
