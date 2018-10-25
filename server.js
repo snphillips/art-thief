@@ -42,7 +42,7 @@ app.get('/', (req, res, next) => {
 app.get('/searchbytag/:value', (req, res, next) => {
   const { value } = req.params;
 
-  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&tag=${value}`)
+  axios.get(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&per_page=300&tag=${value}`)
   .then((response) => {
     return res.json(response.data)
     console.log("tag value is:", value)

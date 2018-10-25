@@ -96,19 +96,19 @@ export default class App extends Component {
     this.setState({loading: true})
 
 
-    // ${this.state.value} is whatever keyword the user chose from the dropdown menu
+    // ${this.state.value} is whatever keyword the user chooses from the dropdown menu
     // The response does the following:
     // 1) stops the loading spinner
     // 2) removes the placeholder image
-    // 3) returns a random item (image, link url & description)
-    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
+    // 3) returns a random item (image, title, description & link url)
+    // axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
+    axios.get(`http://localhost:8000/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
 
-
+        // Using the _Lodash library to first shuffle the response array, to
+        // later pluck the first item from the response array.
         response.data.objects = _Lodash.shuffle(response.data.objects)
         console.log(response.data.objects)
-
-
 
         this.setState({loading: false});
         this.setState({displayPlaceholderSquare: {"display": "none"}})
