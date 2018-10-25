@@ -27,7 +27,8 @@ export default class App extends Component {
       learnMoreURL:"",
       value:"industrial design", //starting with a value in case the user doesn't choose before submitting
       displayModal: {"display": "none"},
-      displayArtResult: {"display": "none"},
+      displayArtResultImage: {"display": "none"},
+      displayArtResultInfo: {"display": "none"},
       // displayLearnMoreURL: {"display": "none"},
       displayLargeArt: {"display": "none"},
       displayPlaceholderSquare: {"display": "block"},
@@ -54,7 +55,7 @@ export default class App extends Component {
   }
 
   handleDropdownSubmit(event) {
-    console.log('the current lookup tag is: ' + this.state.value);
+    this.setState({displayArtResultInfo: {"display": "none"}})
     this.cooperHewittSearchByTagFromAPI()
     event.preventDefault();
 
@@ -75,13 +76,14 @@ export default class App extends Component {
       .then( (response) => {
         this.setState({loading: false});
         this.setState({displayPlaceholderSquare: {"display": "none"}})
-        this.setState({displayArtResult: {"display": "block"}})
+        this.setState({displayArtResultImage: {"display": "block"}})
         // this.setState({displayLearnMoreURL: {"display": "block"}})
         this.setState({imageURL: response.data.objects[randomNumber].images[0].z.url})
         this.setState({itemTitle: response.data.objects[randomNumber].title})
         this.setState({itemMedium: response.data.objects[randomNumber].medium})
-        this.setState({itemInfo: response.data.objects[randomNumber].gallery_text})
+        this.setState({itemInfo: response.data.objects[randomNumber].label_text})
         this.setState({learnMoreURL: response.data.objects[randomNumber].url})
+        this.setState({displayArtResultInfo: {"display": "block"}})
       })
       .catch(function (error) {
         this.setState({showPlaceholderImage: true});
