@@ -13,3 +13,5 @@ https://collection.cooperhewitt.org/api/
 - express
 - react
 - axios
+- server hosted on Heroku
+- client hosted on Surge
