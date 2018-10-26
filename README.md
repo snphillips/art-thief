@@ -13,5 +13,6 @@ https://collection.cooperhewitt.org/api/
 - express
 - react
 - axios
+- some Bootstrap
 - server hosted on Heroku
 - client hosted on Surge
