@@ -8,6 +8,7 @@ import _Lodash from 'lodash';
 import Header from './Header';
 import PlaceholderSquare from './PlaceholderSquare';
 import DropdownMenu from './DropdownMenu';
+import LoadingSpinner from './LoadingSpinner';
 import ArtResult from './ArtResult';
 import ImageModal from './ImageModal';
 import InformationPanel from './InformationPanel';
@@ -31,7 +32,7 @@ export default class App extends Component {
       displayArtResultImage: {"display": "none"},
       displayArtResultInfo: {"display": "none"}, // this refers to all image details like title, materials, url etc.
       displayModal: {"display": "none"},
-      displayIntroMessage: {"display": "block"},
+      displayIntroMessage: {"display": "inline"},
       displayLargeArt: {"display": "none"},
       displayPlaceholderSquare: {"display": "block"},
     };
@@ -129,6 +130,7 @@ export default class App extends Component {
                               handleDropdownSubmit={this.handleDropdownSubmit}
                               loading={this.state.loading}
                               parent_state={this.state}/>
+
                 <PlaceholderSquare parent_state={this.state} />
                 <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
                 <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />

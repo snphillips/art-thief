@@ -13,27 +13,29 @@ export default class DropdownMenu extends Component {
               onChange={this.props.handleDropdownChange}>
 
         <option value="exoticism">choose search keyword</option>
-        <option value="abstract">abstract</option>
-        <option value="angular">angular</option>
-        <option value="architechts">architechts</option>
-        <option value="art deco">art deco</option>
-        <option value="art nouveau">art nouveau</option>
-        <option value="circular">circular</option>
-        <option value="geometric">geometric</option>
-        <option value="graphic designers">graphic design</option>
-        <option value="industrial design">industrial design</option>
-        <option value="intricate">intricate</option>
-        <option value="modernism">modernism</option>
-        <option value="posters">posters</option>
-        <option value="simple">simple</option>
-        <option value="textile design">textile desgin</option>
+        <option className="dropdown-item-style" value="abstract">abstract</option>
+        <option className="dropdown-item-style" value="angular">angular</option>
+        <option className="dropdown-item-style" value="architechts">architechts</option>
+        <option className="dropdown-item-style" value="art deco">art deco</option>
+        <option className="dropdown-item-style" value="art nouveau">art nouveau</option>
+        <option className="dropdown-item-style" value="circular">circular</option>
+        <option className="dropdown-item-style" value="geometric">geometric</option>
+        <option className="dropdown-item-style" value="graphic designers">graphic design</option>
+        <option className="dropdown-item-style" value="industrial design">industrial design</option>
+        <option className="dropdown-item-style" value="intricate">intricate</option>
+        <option className="dropdown-item-style" value="modernism">modernism</option>
+        <option className="dropdown-item-style" value="posters">posters</option>
+        <option className="dropdown-item-style" value="simple">simple</option>
+        <option className="dropdown-item-style" value="textile design">textile desgin</option>
 
       </select>
 
-      <input type="submit"
+
+        <input type="submit"
              value="submit" />
 
-      <LoadingSpinner loading={this.props.loading} />
+        <LoadingSpinner loading={this.props.loading} />
+
 
     </form>
 
