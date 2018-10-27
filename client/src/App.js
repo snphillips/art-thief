@@ -118,36 +118,27 @@ export default class App extends Component {
     return (
       <div className="App">
 
-          <Header />
-
+       <Header />
 
         <div className="container">
-          <div className="row">
 
-              <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-
-                <DropdownMenu handleDropdownChange={this.handleDropdownChange}
-                              handleDropdownSubmit={this.handleDropdownSubmit}
-                              loading={this.state.loading}
-                              parent_state={this.state}/>
-
-                <PlaceholderSquare parent_state={this.state} />
-                <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
-                <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
-               </div>
-
-               <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-
-                 <InformationPanel parent_state={this.state} />
-
-               </div>
-
+          <div className="image-container-stack-vertical flex-item">
+            <DropdownMenu handleDropdownChange={this.handleDropdownChange}
+                          handleDropdownSubmit={this.handleDropdownSubmit}
+                          loading={this.state.loading}
+                          parent_state={this.state}/>
+            <PlaceholderSquare parent_state={this.state} />
+            <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
+            <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
           </div>
-        </div>
 
+          <div className="info-container-stack-horizontal flex-item">
+            <InformationPanel parent_state={this.state} />
+          </div>
 
-          <Footer />
+         </div>
 
+       <Footer />
 
       </div>
     );

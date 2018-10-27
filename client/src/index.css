@@ -10,6 +10,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-content: space-between;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /*border: 5px solid red;*/
+}
+
+.image-container-stack-vertical {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  /*border: 5px solid blue;*/
+}
+
+.info-container-stack-horizontal {
+  display: flex; /* or inline-flex */
+  flex: 2 0px;  /*tell this element to take up twice as much space */
+  flex-direction: row;
+  max-width: 400pt;
+  /*border: 5px solid green;*/
+}
+
+.flex-item {
+
+}
+
 header, footer {
   background-color: black;
   color: white;
@@ -38,7 +67,7 @@ header {
   color: white;
   font-weight: bold;
   position: relative;
-  text-decoration: none; /*This removes the default underline*/
+  text-decoration: none; /*This removes default underline*/
 }
 
 /* The underline animation */
@@ -146,7 +175,7 @@ h2.placeholderText {
   font-size: 450%;
 }
 /*==============================
- Museum Image
+ Museum Image result
 ================================*/
 .image-URL {
   cursor: pointer;
@@ -208,6 +237,7 @@ margin-left: 10pt;
   font-weight: bold;
   padding-bottom: 1.5em;
   border-bottom: 2em solid black;
+  white-space: nowrap;  /* must be one line. No text wrap */
 }
 
 h2.item-title {
@@ -225,7 +255,7 @@ a.learn-more-link {
   font-weight: bold;
   position: relative;
   text-decoration: none; /*This removes the default underline*/
-  /*color: rgba(255,255,255,.7); */
+  white-space: nowrap;  /* must be one line. No text wrap */
 }
 
 
@@ -266,9 +296,34 @@ span.footerLink a{
 }
 
 
-/* 100% Image Width on Smaller Screens */
+/* MODAL 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
+}
+
+
+/* Medium screens */
+@media all and (max-width: 700px) {
+  .image-container-stack-vertical {
+    flex: 1 auto;
+    order: 1;
+  }
+
+  .info-container-stack-horizontal {
+    flex: 1 auto;
+    order: 2;
+  }
+}
+
+/* Large screens */
+@media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars
+   */
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
 }
