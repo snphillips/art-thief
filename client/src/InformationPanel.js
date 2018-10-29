@@ -14,7 +14,6 @@ export default class InformationPanel extends Component {
           <br/>
           <br/>
           <br/>
-          <br/>
         </aside>
     );
   }

@@ -164,8 +164,8 @@ Placeholder image
 img#placeholder-image {
   height: auto;
   max-width: 300pt;
-  margin-top: 1.5em;
-  vertical-align: bottom;
+  margin-top: 2.5em;
+  /*vertical-align: bottom;*/
 }
 
 /* not using but keep just in case */
@@ -184,7 +184,7 @@ h2.placeholderText {
   max-width: auto;
   margin-top: 10pt;
   margin-right: 20pt;
-  transition: 0.3s;
+  /*transition: 0.3s;*/
 }
 
 .image-URL:hover {
@@ -236,7 +236,7 @@ aside {
   font-weight: bold;
   padding-bottom: .75em;
   border-bottom: 1.5em solid black;
-  white-space: nowrap;  /* must be one line. No text wrap */
+  white-space: nowrap;   /*must be one line. No text wrap */
 }
 
 h2.item-title {
@@ -249,15 +249,13 @@ h2.item-title {
   margin-bottom: 1em;
 }
 
-
 a.learn-more-link {
   color: black;
   font-weight: bold;
   position: relative;
   text-decoration: none; /*This removes the default underline*/
-  white-space: nowrap;  /* must be one line. No text wrap */
+  white-space: nowrap;   /*must be one line. No text wrap */
 }
-
 
 /* The underline animation */
 a.learn-more-link:after {
@@ -308,10 +306,12 @@ span.footerLink a{
 
 
 /* Phones */
-@media all and (max-width: 736px) {
+@media all and (max-width: 500px) {
+
   .image-container-stack-vertical {
     flex: 1 auto;
     order: 1;
+    margin-right: 0;
   }
 
   .info-container-stack-horizontal {
@@ -319,13 +319,46 @@ span.footerLink a{
     order: 2;
   }
 
+  img#placeholder-image {
+    /*height: auto;*/
+    width: 100%;
+    margin-top: 1em;
+  /*vertical-align: bottom;*/
+  }
 
+  .image-URL {
+    max-height: auto;
+    max-width: 100%;
+    margin-top: 10pt;
+    /*margin-right: 20pt;*/
+  }
 
+  header {
+    margin-bottom: 4%;
+    text-align: center;
+  }
 
+  /* submit button */
+  input {
+    padding: 9px 30px;
+    margin-top: 1em;
+  }
 
+  /* dropdown menu */
+  #tag {
+    margin: auto;
+    width: 100%;
+  }
 
+  .info-container-stack-horizontal {
+    width: 100%;
+  }
 
-
+  p.intro-message {
+    border-bottom: 0;
+    font-size: 100%;
+    white-space: normal;
+  }
 
 }
 
