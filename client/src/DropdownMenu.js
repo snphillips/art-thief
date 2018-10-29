@@ -36,7 +36,6 @@ export default class DropdownMenu extends Component {
 
         <LoadingSpinner loading={this.props.loading} />
 
-
     </form>
 
     );

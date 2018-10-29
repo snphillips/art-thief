@@ -15,9 +15,9 @@ const axios = require('axios');
 // Redis & Response-time
 // npm packages
 // **********************************
-const responseTime = require('response-time')
-var redis = require("redis"),
-      client = redis.createClient();
+// const responseTime = require('response-time')
+// var redis = require("redis"),
+      // client = redis.createClient();
 
 
 // **********************************
@@ -85,7 +85,7 @@ app.use(bodyParser.json());
 // Middleware that adds a X-Response-Time
 // header to responses.
 // **********************************
-app.use(responseTime());
+// app.use(responseTime());
 
 // **********************************
 // Port

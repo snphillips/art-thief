@@ -6,7 +6,7 @@ import _Lodash from 'lodash';
 // Importing Pages
 // ===============================
 import Header from './Header';
-import PlaceholderSquare from './PlaceholderSquare';
+import PlaceholderImage from './PlaceholderImage';
 import DropdownMenu from './DropdownMenu';
 import LoadingSpinner from './LoadingSpinner';
 import ArtResult from './ArtResult';
@@ -84,7 +84,7 @@ export default class App extends Component {
         console.log(response.data.objects)
 
         this.setState({loading: false});
-        this.setState({displayPlaceholderSquare: {"display": "none"}})
+        this.setState({displayPlaceholderImage: {"display": "none"}})
         this.setState({displayArtResultImage: {"display": "block"}})
         this.setState({imageURL: response.data.objects[0].images[0].z.url})
         this.setState({itemTitle: response.data.objects[0].title})
@@ -125,9 +125,9 @@ export default class App extends Component {
           <div className="image-container-stack-vertical flex-item">
             <DropdownMenu handleDropdownChange={this.handleDropdownChange}
                           handleDropdownSubmit={this.handleDropdownSubmit}
-                          loading={this.state.loading}
-                          parent_state={this.state}/>
-            <PlaceholderSquare parent_state={this.state} />
+                          parent_state={this.state}
+                          loading={this.state.loading} />
+            <PlaceholderImage parent_state={this.state} />
             <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
             <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
           </div>
@@ -144,3 +144,4 @@ export default class App extends Component {
     );
   }
 }
+            // <LoadingSpinner loading={this.state.loading}/>

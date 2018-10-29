@@ -24,6 +24,7 @@ body {
 .image-container-stack-vertical {
   display: flex; /* or inline-flex */
   flex-direction: column;
+  margin-right: 4%;
   /*border: 5px solid blue;*/
 }
 
@@ -32,6 +33,7 @@ body {
   flex: 2 0px;  /*tell this element to take up twice as much space */
   flex-direction: row;
   max-width: 400pt;
+  padding-top: 1em;
   /*border: 5px solid green;*/
 }
 
@@ -99,7 +101,7 @@ a.header-link:hover:after{
 dropdown menu(select) & submit(input)
 ================================*/
 form {
-  max-width: 27em;
+  /*max-width: 27em;*/
   /*margin-top: 1em;*/
 }
 
@@ -116,7 +118,7 @@ select, input {
 /*dropdown menu*/
 select {
   border: 9px solid black;
-  margin-right: 1em;
+  margin-right: .8em;
 }
 
 .dropdown-item-style {
@@ -126,7 +128,7 @@ select {
 
 /* submit button */
 input {
-  padding: 9px 22px;
+  padding: 9px 17px;
   margin-top: 1em;
 }
 
@@ -135,33 +137,34 @@ input:hover {
 }
 
 #tag {
-  width: 15em;
+  width: 14.5em;
 }
 
-/* The loading spinner. This is an nmp package.*/
+/*The loading spinner. This is an nmp package.
 .sweet-loading {
   display: inline-block;
   position: relative;
   top: 10px;
   margin-left: 10pt;
 }
+*/
+
+/* The loading spinner. This is an nmp package.*/
+.sweet-loading {
+  display: inline-block;
+  position: relative;
+  top: 1em;
+  padding: 0 1em 0 1em;
+  /*left: -50%;*/
+}
 
 /*==============================
-Placeholder image & text
+Placeholder image
 ================================*/
-div#placeholder-square {
-  height: 262pt;
-  width: 262pt;
-  margin-top: 1em;
-  /*the black & white stripes
-  some gradient trickery going on*/
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(0,0,0,1),
-    rgba(0,0,0,1) 1.5em,
-    white 1.5em,
-    white 3em
-  );
+img#placeholder-image {
+  height: auto;
+  max-width: 300pt;
+  margin-top: 1.5em;
   vertical-align: bottom;
 }
 
@@ -171,6 +174,7 @@ h2.placeholderText {
   color: rgba(0,0,0,.7);
   font-size: 450%;
 }
+
 /*==============================
  Museum Image result
 ================================*/
@@ -179,7 +183,7 @@ h2.placeholderText {
   max-height: 65vh;
   max-width: auto;
   margin-top: 10pt;
-  margin-right: 10pt;
+  margin-right: 20pt;
   transition: 0.3s;
 }
 
@@ -230,8 +234,8 @@ aside {
   color: black;
   font-size: 90%;
   font-weight: bold;
-  padding-bottom: 1.5em;
-  border-bottom: 2em solid black;
+  padding-bottom: .75em;
+  border-bottom: 1.5em solid black;
   white-space: nowrap;  /* must be one line. No text wrap */
 }
 
@@ -256,7 +260,7 @@ a.learn-more-link {
 
 
 /* The underline animation */
-a.learn-more-link:after{
+a.learn-more-link:after {
   content: '';
   position: absolute;
   width: 0; height: 10px;
@@ -268,7 +272,7 @@ a.learn-more-link:after{
   -webkit-transition: width .4s ease;
 }
 
-a.learn-more-link:hover:after{
+a.learn-more-link:hover:after {
   width: 100%;
   left: 0;
   background: black;
@@ -296,15 +300,15 @@ span.footerLink a{
 *********************************/
 
 /* MODAL 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 736px){
     .modal-content {
         width: 100%;
     }
 }
 
 
-/* Medium screens */
-@media all and (max-width: 700px) {
+/* Phones */
+@media all and (max-width: 736px) {
   .image-container-stack-vertical {
     flex: 1 auto;
     order: 1;
@@ -314,15 +318,20 @@ span.footerLink a{
     flex: 1 auto;
     order: 2;
   }
+
+
+
+
+
+
+
+
+
 }
 
-/* Large screens */
-@media all and (min-width: 800px) {
-  /* We invert order of first sidebar and main
-   * And tell the main element to take twice as much width as the other two sidebars
-   */
-  .aside-1 { order: 1; }
-  .main    { order: 2; }
-  .aside-2 { order: 3; }
-  .footer  { order: 4; }
+/* Little Phones */
+@media all and (max-width: 480px) {
+
 }
+
+
