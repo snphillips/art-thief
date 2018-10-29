@@ -25,7 +25,6 @@ body {
   display: flex; /* or inline-flex */
   flex-direction: column;
   margin-right: 4%;
-  /*border: 5px solid blue;*/
 }
 
 .info-container-stack-horizontal {
@@ -119,6 +118,7 @@ select, input {
 select {
   border: 9px solid black;
   margin-right: .8em;
+  /*-webkit-appearance: none;*/
 }
 
 .dropdown-item-style {
@@ -163,7 +163,7 @@ Placeholder image
 ================================*/
 img#placeholder-image {
   height: auto;
-  max-width: 300pt;
+  max-width: 400pt;
   margin-top: 2.5em;
   /*vertical-align: bottom;*/
 }
@@ -226,10 +226,6 @@ h2.placeholderText {
 /*==============================
 aside information panel
 ================================*/
-aside {
-/*margin-left: 30pt;*/
-}
-
 .intro-message {
   color: black;
   font-size: 90%;
@@ -288,9 +284,9 @@ footer {
 
 span.footerLink a{
   font-weight: bold;
-  font-size: 80%;
+  font-size: 90%;
   color: rgba(255, 255, 255, .7);
-  padding-right: 1%;
+  padding-right: 3%;
 }
 
 /********************************
@@ -336,19 +332,24 @@ span.footerLink a{
   header {
     margin-bottom: 4%;
     text-align: center;
-  }
-
-  /* submit button */
-  input {
-    padding: 9px 30px;
-    margin-top: 1em;
+    padding-left: 0;
+    margin-right: 0;
   }
 
   /* dropdown menu */
   #tag {
+    font-size: 130%;
     margin: auto;
     width: 100%;
   }
+
+  /* submit button */
+  input {
+    font-size: 130%;
+    padding: 9px 30px;
+    margin-top: .5em;
+  }
+
 
   .info-container-stack-horizontal {
     width: 100%;
@@ -358,6 +359,14 @@ span.footerLink a{
     border-bottom: 0;
     font-size: 100%;
     white-space: normal;
+  }
+
+  h2.item-title {
+    font-size: 120%;
+  }
+
+  .item-information, .item-medium, .learn-more-link {
+    font-size: 120%;
   }
 
 }
