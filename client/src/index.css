@@ -140,15 +140,6 @@ input:hover {
   width: 14.5em;
 }
 
-/*The loading spinner. This is an nmp package.
-.sweet-loading {
-  display: inline-block;
-  position: relative;
-  top: 10px;
-  margin-left: 10pt;
-}
-*/
-
 /* The loading spinner. This is an nmp package.*/
 .sweet-loading {
   display: inline-block;
@@ -165,8 +156,10 @@ img#placeholder-image {
   height: auto;
   max-width: 400pt;
   margin-top: 2.5em;
-  /*vertical-align: bottom;*/
+  cursor: pointer;
 }
+
+
 
 /* not using but keep just in case */
 h2.placeholderText {
@@ -184,11 +177,11 @@ h2.placeholderText {
   max-width: auto;
   margin-top: 10pt;
   margin-right: 20pt;
-  /*transition: 0.3s;*/
 }
 
 .image-URL:hover {
   opacity: .9;
+  opacity: 0;
 }
 
 /*==============================
@@ -286,7 +279,7 @@ span.footerLink a{
   font-weight: bold;
   font-size: 90%;
   color: rgba(255, 255, 255, .7);
-  padding-right: 3%;
+  padding-right: 2%;
 }
 
 /********************************

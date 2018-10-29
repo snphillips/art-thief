@@ -23,6 +23,7 @@ export default class App extends Component {
       // loading: true, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
+      placeholderImageSRC: {'src': "./images/Cooper-Hewitt_Museum02.png"},
       imageURL:"",
       itemTitle: "",
       itemMedium: "",
@@ -42,6 +43,8 @@ export default class App extends Component {
     this.handleDropdownSubmit = this.handleDropdownSubmit.bind(this);
     this.viewBigImage = this.viewBigImage.bind(this);
     this.closeBigImage = this.closeBigImage.bind(this);
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
+    this.handleDropdownSubmit = this.handleDropdownSubmit.bind(this);
 
   }
 // ***********************************
@@ -64,7 +67,6 @@ export default class App extends Component {
     event.preventDefault();
 
   }
-
 
   cooperHewittSearchByTagFromAPI() {
     this.setState({loading: true})
@@ -111,6 +113,24 @@ export default class App extends Component {
   }
 
 
+  placeholderImageRollover() {
+    console.log("placeholderImageRollover")
+    this.setState({placeholderImageSRC: {
+      "src": "./images/Cooper-Hewitt_Museum02.png",
+      "animation": "fadein 1.5s"}
+    })
+  }
+
+  placeholderImageRolloff() {
+    console.log("placeholderImageRolloff")
+    this.setState({placeholderImageSRC: {
+      "src": "./images/Cooper-Hewitt_Museum.png",
+      "animation": "fadein .05s"}
+    })
+  }
+
+
+
 //  ==================================
 //  And finally, the render
 //  ==================================
@@ -123,17 +143,29 @@ export default class App extends Component {
         <div className="container">
 
           <div className="image-container-stack-vertical flex-item">
+
             <DropdownMenu handleDropdownChange={this.handleDropdownChange}
                           handleDropdownSubmit={this.handleDropdownSubmit}
                           parent_state={this.state}
                           loading={this.state.loading} />
-            <PlaceholderImage parent_state={this.state} />
-            <ArtResult parent_state={this.state} viewBigImage={this.viewBigImage} />
-            <ImageModal parent_state={this.state} closeBigImage={this.closeBigImage} />
+
+            <PlaceholderImage parent_state={this.state}
+                              placeholderImageSRC={this.state.placeholderImageSRC}
+                              placeholderImageRollover={this.placeholderImageRollover}
+                              placeholderImageRolloff={this.placeholderImageRolloff} />
+
+            <ArtResult parent_state={this.state}
+                       viewBigImage={this.viewBigImage} />
+
+            <ImageModal parent_state={this.state}
+                        closeBigImage={this.closeBigImage} />
+
           </div>
 
           <div className="info-container-stack-horizontal flex-item">
+
             <InformationPanel parent_state={this.state} />
+
           </div>
 
          </div>
