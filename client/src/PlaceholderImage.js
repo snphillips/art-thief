@@ -7,12 +7,20 @@ export default class PlaceholderImage extends Component {
       <div style={this.props.parent_state.displayPlaceholderImage}>
 
         <img id="placeholder-image"
-             alt="cooper hewitt building exterior"
+
+             alt=""
+
              src="./images/Cooper-Hewitt_Museum02.png"
-             onMouseOver={event => (event.currentTarget.src = "./images/Cooper-Hewitt_Museum.png")}
-             onMouseOut={event => (
-               event.currentTarget.src = "./images/Cooper-Hewitt_Museum02.png",
-               event.animation = "fadein 3.0s")}
+
+             onMouseOver={ (event) => {
+               // console.log("onMouseOver")
+               event.currentTarget.src = "https://i.imgur.com/IwBKBye.png"
+             }}
+
+             onMouseOut={ (event) => {
+               // console.log("onMouseOut")
+               event.currentTarget.src = "./images/Cooper-Hewitt_Museum02.png"
+             }}
 
              />
 

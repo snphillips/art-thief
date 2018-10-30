@@ -154,12 +154,10 @@ Placeholder image
 ================================*/
 img#placeholder-image {
   height: auto;
-  max-width: 400pt;
+  max-width: 350pt;
   margin-top: 2.5em;
   cursor: pointer;
 }
-
-
 
 /* not using but keep just in case */
 h2.placeholderText {
@@ -181,7 +179,6 @@ h2.placeholderText {
 
 .image-URL:hover {
   opacity: .9;
-  opacity: 0;
 }
 
 /*==============================

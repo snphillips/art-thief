@@ -23,13 +23,12 @@ export default class App extends Component {
       // loading: true, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
-      placeholderImageSRC: {'src': "./images/Cooper-Hewitt_Museum02.png"},
       imageURL:"",
       itemTitle: "",
       itemMedium: "",
       itemInfo: "",
       learnMoreURL:"",
-      value:"exoticism", //starting with a value in case the user doesn't choose before submitting
+      value:"exoticism", //starting with a value in case the user doesn't choose before hitting submit
       displayArtResultImage: {"display": "none"},
       displayArtResultInfo: {"display": "none"}, // this refers to all image details like title, materials, url etc.
       displayModal: {"display": "none"},
@@ -72,7 +71,7 @@ export default class App extends Component {
     this.setState({loading: true})
 
     // ${this.state.value} is whatever keyword the user chooses from the dropdown menu
-    // The response does the following:
+    // The "response" does the following:
     // 1) stops the loading spinner
     // 2) removes the placeholder image
     // 3) returns a random item (image, title, description & link url)
@@ -113,22 +112,6 @@ export default class App extends Component {
   }
 
 
-  placeholderImageRollover() {
-    console.log("placeholderImageRollover")
-    this.setState({placeholderImageSRC: {
-      "src": "./images/Cooper-Hewitt_Museum02.png",
-      "animation": "fadein 1.5s"}
-    })
-  }
-
-  placeholderImageRolloff() {
-    console.log("placeholderImageRolloff")
-    this.setState({placeholderImageSRC: {
-      "src": "./images/Cooper-Hewitt_Museum.png",
-      "animation": "fadein .05s"}
-    })
-  }
-
 
 
 //  ==================================
@@ -149,10 +132,7 @@ export default class App extends Component {
                           parent_state={this.state}
                           loading={this.state.loading} />
 
-            <PlaceholderImage parent_state={this.state}
-                              placeholderImageSRC={this.state.placeholderImageSRC}
-                              placeholderImageRollover={this.placeholderImageRollover}
-                              placeholderImageRolloff={this.placeholderImageRolloff} />
+            <PlaceholderImage parent_state={this.state} />
 
             <ArtResult parent_state={this.state}
                        viewBigImage={this.viewBigImage} />
@@ -176,4 +156,3 @@ export default class App extends Component {
     );
   }
 }
-            // <LoadingSpinner loading={this.state.loading}/>
