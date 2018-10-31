@@ -81,7 +81,8 @@ export default class App extends Component {
         // Using the _Lodash library to first shuffle the response array,
         // in order to pluck the first item from the response array.
         response.data.objects = _Lodash.shuffle(response.data.objects)
-        console.log(response.data.objects)
+
+        console.log(`The search value is:`, this.state.value, `and there are`, (response.data.objects).length, `objects.`)
 
         this.setState({loading: false});
         this.setState({displayPlaceholderImage: {"display": "none"}})

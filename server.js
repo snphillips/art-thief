@@ -63,8 +63,9 @@ const getItemBySearchTag = (req, res) => {
         // SETEX is a redis command. It has 3 parameters: "key, seconds, value"
         // 1) key: Set the string-key:value in the cache.
         // 2) seconds: Set set key to timeout after a given number of seconds (cache expiration) to 1 hour (60 minutes)
+        // 3600 = 1hr
         // 3) value: The response as JSON
-        client.setex(req.params.value, 3600, JSON.stringify(response.data));
+        client.setex(req.params.value, 172800, JSON.stringify(response.data));
 
       return res.json(response.data)
     })
