@@ -17,7 +17,10 @@ const axios = require('axios');
 // **********************************
 // const responseTime = require('response-time')
 var redis = require("redis"),
-      client = redis.createClient();
+    // local hosting
+    client = redis.createClient();
+    // Heroku hosting
+    var client = require('redis').createClient(process.env.REDIS_URL);
 
 
 // **********************************
