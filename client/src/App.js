@@ -8,7 +8,6 @@ import _Lodash from 'lodash';
 import Header from './Header';
 import PlaceholderImage from './PlaceholderImage';
 import DropdownMenu from './DropdownMenu';
-import LoadingSpinner from './LoadingSpinner';
 import ArtResult from './ArtResult';
 import ImageModal from './ImageModal';
 import InformationPanel from './InformationPanel';
@@ -75,8 +74,8 @@ export default class App extends Component {
     // 1) stops the loading spinner
     // 2) removes the placeholder image
     // 3) returns a random item (image, title, description & link url)
-    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
-    // axios.get(`http://localhost:8000/searchbytag/`+`${this.state.value}`)
+    // axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
+    axios.get(`http://localhost:8888/searchbytag/`+`${this.state.value}`)
       .then( (response) => {
 
         // Using the _Lodash library to first shuffle the response array,
