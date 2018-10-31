@@ -54,7 +54,7 @@ app.get('/', (req, res, next) => {
 
 const getItemBySearchTag = (req, res) => {
   let { value } = req.params;
-  let url = `https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&per_page=500&tag=${value}`
+  let url = `https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${process.env.COOPER_API_TOKEN}&has_images=1&per_page=200&tag=${value}`
 
   return axios.get(url)
 
