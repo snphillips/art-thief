@@ -16,6 +16,7 @@ https://collection.cooperhewitt.org/api/
 - node/express
 - react
 - axios for API calls
+- Cooper Hewitt Museum API
 - redis to cache results for quick retrieval
 - server hosted on Heroku
 - client hosted on Surge
