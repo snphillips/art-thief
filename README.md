@@ -12,11 +12,11 @@ _Art Thief_ allows users to view random images from the Cooper Hewitt Museum's c
 _Art Thief_ is a project to experiment with the Cooper Hewitt Museum's wonderful API.
 https://collection.cooperhewitt.org/api/
 
-https://i.imgur.com/O3KKdaX.png
-https://i.imgur.com/NRybiUm.png
-https://i.imgur.com/KZ5czvt.png
-https://i.imgur.com/zKp3tDF.png
-https://i.imgur.com/n8tJRAN.png
+<img src="https://i.imgur.com/O3KKdaX.png" width="500" alt="screengrab of app">
+<img src="https://i.imgur.com/NRybiUm.png" width="500" alt="screengrab of app">
+<img src="https://i.imgur.com/KZ5czvt.png" width="500" alt="screengrab of app">
+<img src="https://i.imgur.com/zKp3tDF.png" width="500" alt="screengrab of app">
+<img src="https://i.imgur.com/n8tJRAN.png" width="500" alt="screengrab of app">
 
 ## Built With
 - node/express
