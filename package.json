@@ -8,7 +8,9 @@
     "start": "MODE='production' node server.js",
     "server": "nodemon server.js",
     "dev": "MODE='development' nodemon server.js",
-    "scripts": { "test": "jasmine" }
+    "scripts": {
+      "test": "jasmine"
+    }
   },
   "author": "Sarah Phillips",
   "license": "ISC",
@@ -25,6 +27,6 @@
   },
   "devDependencies": {
     "jasmine": "^3.3.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.6"
   }
 }
