@@ -19,7 +19,6 @@ export default class App extends Component {
 
     this.state = {
       loading: false, // the loading spinner
-      // loading: true, // the loading spinner
       // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
       // serverSource: 'http://localhost:8000/searchbytag',
       imageURL:"",
@@ -41,9 +40,6 @@ export default class App extends Component {
     this.handleDropdownSubmit = this.handleDropdownSubmit.bind(this);
     this.viewBigImage = this.viewBigImage.bind(this);
     this.closeBigImage = this.closeBigImage.bind(this);
-    this.handleDropdownChange = this.handleDropdownChange.bind(this);
-    this.handleDropdownSubmit = this.handleDropdownSubmit.bind(this);
-
   }
 // ***********************************
 // End of constructor
@@ -63,7 +59,6 @@ export default class App extends Component {
     this.setState({displayIntroMessage: {"display": "none"}})
     this.cooperHewittSearchByTagFromAPI()
     event.preventDefault();
-
   }
 
   cooperHewittSearchByTagFromAPI() {

@@ -21,7 +21,7 @@ export default class DropdownMenu extends Component {
         <option className="dropdown-item-style" value="chairs">chairs</option>
         <option className="dropdown-item-style" value="circular">circular</option>
         <option className="dropdown-item-style" value="geometric">geometric</option>
-        <option className="dropdown-item-style" value="graphic designers">graphic design</option>
+        <option className="dropdown-item-style" value="graphic designers">graphic designers</option>
         <option className="dropdown-item-style" value="industrial design">industrial design</option>
         <option className="dropdown-item-style" value="intricate">intricate</option>
         <option className="dropdown-item-style" value="kitchen">kitchen</option>
@@ -32,11 +32,12 @@ export default class DropdownMenu extends Component {
 
       </select>
 
-
-        <input type="submit"
+      <input type="submit"
+             class="button"
+             id="submit-button"
              value="submit" />
 
-        <LoadingSpinner loading={this.props.loading} />
+      <LoadingSpinner loading={this.props.loading} />
 
     </form>
 

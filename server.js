@@ -2,9 +2,11 @@
 // into process.env
 require('dotenv').config()
 
-//import express
+// ==================================
+// Express
+// Henceforth, express is now app
+// ==================================
 const express = require('express');
-// initialize the app
 const app = express();
 
 const logger = require('morgan');
@@ -36,9 +38,10 @@ const bodyParser = require('body-parser');
 
 
 // ==================================
-// Set the port, either from an environmental variable or manually
+// Set the port
+// either from an environmental variable or manually
 // ==================================
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 8887;
 
 
 
@@ -112,7 +115,7 @@ app.use((req, res, next) => {
 // ==================================
 // Body-parser
 // npm package Parse incoming request bodies
-// in a middleware before handlers, using req.body property.
+// through forms
 // ==================================
 app.use(bodyParser.json());
 

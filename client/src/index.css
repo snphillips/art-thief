@@ -18,7 +18,6 @@ body {
   justify-content: flex-start;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  /*border: 5px solid red;*/
 }
 
 .image-container-stack-vertical {
@@ -33,7 +32,6 @@ body {
   flex-direction: row;
   max-width: 400pt;
   padding-top: 1em;
-  /*border: 5px solid green;*/
 }
 
 header, footer {
@@ -53,10 +51,10 @@ header {
   /*height: 1.8em;*/
   font-family: 'Kurale', serif;
   margin-top: 0px;
+  margin-right: .75em;
   margin-bottom: 5pt;
   padding-bottom: 2pt;
   padding-left: 9%;
-  margin-right: .75em;
 }
 
  a.header-link {
@@ -64,7 +62,7 @@ header {
   color: white;
   font-weight: bold;
   position: relative;
-  text-decoration: none; /*This removes default underline*/
+  text-decoration: none; /* removes default underline */
 }
 
 /* The underline animation */
@@ -87,7 +85,7 @@ a.header-link:hover:after{
 }
 
 
-/* Not using but keep- might need if you change your mind*/
+/* Not using but keep- might need if you change your mind */
 .intro-message-header {
   color: black;
   color: white;
@@ -159,7 +157,7 @@ img#placeholder-image {
   cursor: pointer;
 }
 
-/* not using but keep just in case */
+/* not using but keep just in case you do in the future */
 h2.placeholderText {
   margin: 0;
   color: rgba(0,0,0,.7);
@@ -214,7 +212,7 @@ h2.placeholderText {
 
 
 /*==============================
-aside information panel
+Aside information panel
 ================================*/
 .intro-message {
   color: black;
@@ -265,18 +263,27 @@ a.learn-more-link:hover:after {
  Footer
 ================================*/
 footer {
+  color: rgba(255, 255, 255, .7);
   position: fixed;
   bottom: 0;
   padding-left: 1%;
   padding-top: .5em;
   padding-bottom: .3em;
+  font-weight: bold;
+  font-size: 95%;
 }
 
 span.footerLink a{
-  font-weight: bold;
-  font-size: 90%;
   color: rgba(255, 255, 255, .7);
-  padding-right: 2%;
+  padding-right: .5rem;
+}
+
+span.footerLink a:hover{
+  color: rgba(255, 255, 255, .5);
+}
+
+.fa-heart {
+  font-size: 80%;
 }
 
 /********************************
@@ -362,6 +369,7 @@ span.footerLink a{
 }
 
 /* Little Phones */
+/* TODO */
 @media all and (max-width: 480px) {
 
 }
