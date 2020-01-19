@@ -1,11 +1,10 @@
-
 /*==============================
 General Styling
 ================================*/
 body {
   background-color: white;
   margin: auto;
-  font-family:sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,27 +20,31 @@ body {
 }
 
 .image-container-stack-vertical {
-  display: flex; /* or inline-flex */
+  display: flex;
+  /* or inline-flex */
   flex-direction: column;
   margin-right: 4%;
 }
 
 .info-container-stack-horizontal {
-  display: flex; /* or inline-flex */
-  flex: 2 0px;  /*tell this element to take up twice as much space */
+  display: flex;
+  /* or inline-flex */
+  flex: 2 0px;
+  /*tell this element to take up twice as much space */
   flex-direction: row;
   max-width: 400pt;
   padding-top: 1em;
 }
 
-header, footer {
+header,
+footer {
   background-color: black;
   color: white;
   width: 100%;
 }
 
 p {
- margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /*==============================
@@ -57,28 +60,30 @@ header {
   padding-left: 9%;
 }
 
- a.header-link {
+a.header-link {
   font-size: 80%;
   color: white;
   font-weight: bold;
   position: relative;
-  text-decoration: none; /* removes default underline */
+  text-decoration: none;
+  /* removes default underline */
 }
 
 /* The underline animation */
-a.header-link:after{
+a.header-link:after {
   content: '';
   position: absolute;
-  width: 0; height: 2pt;
+  width: 0;
+  height: 2pt;
   display: block;
   margin-top: 1pt;
   right: 0;
-   background: white;
+  background: white;
   transition: width .4s ease;
   -webkit-transition: width .4s ease;
 }
 
-a.header-link:hover:after{
+a.header-link:hover:after {
   width: 100%;
   left: 0;
   background: white;
@@ -102,8 +107,9 @@ form {
   /*margin-top: 1em;*/
 }
 
-select, input {
-  background-color: rgba(0,0,0,1);
+select,
+input {
+  background-color: rgba(0, 0, 0, 1);
   color: white;
   border: none;
   border-radius: 4px;
@@ -120,7 +126,7 @@ select {
 }
 
 .dropdown-item-style {
-  background-color: rgba(0,0,0,1);
+  background-color: rgba(0, 0, 0, 1);
   color: white;
 }
 
@@ -131,7 +137,7 @@ input {
 }
 
 input:hover {
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0, 0, 0, .8);
 }
 
 #tag {
@@ -160,7 +166,7 @@ img#placeholder-image {
 /* not using but keep just in case you do in the future */
 h2.placeholderText {
   margin: 0;
-  color: rgba(0,0,0,.7);
+  color: rgba(0, 0, 0, .7);
   font-size: 450%;
 }
 
@@ -184,24 +190,33 @@ h2.placeholderText {
 ================================*/
 .modal-background {
   display: none;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 20px; /* Location of the box */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 20px;
+  /* Location of the box */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(255,255,255, 1);
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(255, 255, 255, 1);
 
-/* Add Animation - Zoom in the Modal */
+  /* Add Animation - Zoom in the Modal */
   animation-name: zoombig;
   animation-duration: 0.3s;
 }
 
 @keyframes zoombig {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
 }
 
 .image-large {
@@ -220,7 +235,8 @@ Aside information panel
   font-weight: bold;
   padding-bottom: .75em;
   border-bottom: 1.5em solid black;
-  white-space: nowrap;   /*must be one line. No text wrap */
+  white-space: nowrap;
+  /*must be one line. No text wrap */
 }
 
 h2.item-title {
@@ -229,7 +245,8 @@ h2.item-title {
   font-size: 110%;
 }
 
-.item-information, .item-medium {
+.item-information,
+.item-medium {
   margin-bottom: 1em;
 }
 
@@ -237,19 +254,22 @@ a.learn-more-link {
   color: black;
   font-weight: bold;
   position: relative;
-  text-decoration: none; /*This removes the default underline*/
-  white-space: nowrap;   /*must be one line. No text wrap */
+  text-decoration: none;
+  /*This removes the default underline*/
+  white-space: nowrap;
+  /*must be one line. No text wrap */
 }
 
 /* The underline animation */
 a.learn-more-link:after {
   content: '';
   position: absolute;
-  width: 0; height: 10px;
+  width: 0;
+  height: 10px;
   display: block;
   margin-top: 4px;
   right: 0;
-   background: black;
+  background: black;
   transition: width .4s ease;
   -webkit-transition: width .4s ease;
 }
@@ -259,6 +279,7 @@ a.learn-more-link:hover:after {
   left: 0;
   background: black;
 }
+
 /*==============================
  Footer
 ================================*/
@@ -273,12 +294,12 @@ footer {
   font-size: 95%;
 }
 
-span.footerLink a{
+span.footerLink a {
   color: rgba(255, 255, 255, .7);
   padding-right: .5rem;
 }
 
-span.footerLink a:hover{
+span.footerLink a:hover {
   color: rgba(255, 255, 255, .5);
 }
 
@@ -291,10 +312,10 @@ span.footerLink a:hover{
 *********************************/
 
 /* MODAL 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 736px){
-    .modal-content {
-        width: 100%;
-    }
+@media only screen and (max-width: 736px) {
+  .modal-content {
+    width: 100%;
+  }
 }
 
 
@@ -316,7 +337,7 @@ span.footerLink a:hover{
     /*height: auto;*/
     width: 100%;
     margin-top: 1em;
-  /*vertical-align: bottom;*/
+    /*vertical-align: bottom;*/
   }
 
   .image-URL {
@@ -362,7 +383,9 @@ span.footerLink a:hover{
     font-size: 120%;
   }
 
-  .item-information, .item-medium, .learn-more-link {
+  .item-information,
+  .item-medium,
+  .learn-more-link {
     font-size: 120%;
   }
 
@@ -370,8 +393,4 @@ span.footerLink a:hover{
 
 /* Little Phones */
 /* TODO */
-@media all and (max-width: 480px) {
-
-}
-
-
+@media all and (max-width: 480px) {}

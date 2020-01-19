@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-export default class ImageModal extends Component {
-  render() {
-    return (
-
-      <div className="modal-background" style={this.props.parent_state.displayModal}>
-        <img className="image-large" src={this.props.parent_state.imageURL} onClick={this.props.closeBigImage} alt=""/>
-      </div>
-
-    );
-  }
+export default function ImageModal(props) {
+  return (
+    <div className="modal-background" style={props.parent_state.displayModal}>
+      <img className="image-large" src={props.parent_state.imageURL} onClick={props.closeBigImage} alt="" />
+    </div>
+  );
 }
