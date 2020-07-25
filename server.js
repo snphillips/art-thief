@@ -20,7 +20,7 @@ const axios = require('axios');
 // Redis - npm package for cacheing
 // ==================================
 var redis = require("redis"),
-    client = require('redis').createClient(process.env.REDIS_URL);
+    client = require('redis').createClient(process.env.REDIS_URI);
 
 
 // ==================================
