@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'react-emotion';
+import { css } from 'emotion';
 //react-spinners is an npm package
 import { ScaleLoader } from 'react-spinners';
 
