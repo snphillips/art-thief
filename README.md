@@ -23,7 +23,7 @@ The server (back end) is Node/Express. The client (front end) is React.
 ## Geetting Started
 1) Clone the repo
 
-`git clone `
+`git clone https://github.com/snphillips/art-thief.git`
 
 2) cd into the directory
 
@@ -36,6 +36,7 @@ The server (back end) is Node/Express. The client (front end) is React.
 4) get the dependencie for the client
 
  ` cd client`
+ 
  ` npm install `
 
 
