@@ -45,8 +45,10 @@ The server (back end) is Node/Express. The client (front end) is React.
 
 6) paste the following into your .env file but reaplace YOUR ACCESS TOKEN with the Cooper Hewitt Museum token you saved from step 1). Remember to put the token in quotes as it's a string.
 
-`# Cooper Hewitt API token
+`
+# Cooper Hewitt API token
 COOPER_API_TOKEN='YOUR ACCESS TOKEN'
+`
 
 note: you'll notice that the `.env` is listed in the .gitignore. This is to keep your access token safe from prying eyes.
 `
