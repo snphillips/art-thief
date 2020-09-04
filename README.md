@@ -47,8 +47,8 @@ Open a browser to http://localhost:8887/
 
 
 ## Built With
-- node/express
-- react
+- node/express (server)
+- react (client)
 - axios for API calls
 - Cooper Hewitt Museum API
 - redis to cache results for quick retrieval
