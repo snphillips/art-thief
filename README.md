@@ -43,7 +43,7 @@ The server (back end) is Node/Express. The client (front end) is React.
 
 `touch .env`
 
-6) paste the following into your .env file but reaplace YOUR ACCESS TOKEN with the Cooper Hewitt Museum token you saved from step 1). Remember to put the token in quotes as it's a string.
+6) Paste the following into your .env file but reaplace YOUR ACCESS TOKEN with the Cooper Hewitt Museum token you saved from step 1). Remember to put the token in quotes as it's a string.
 
 `COOPER_API_TOKEN='YOUR ACCESS TOKEN'`
 
