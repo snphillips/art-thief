@@ -70,6 +70,8 @@ Open a browser to http://localhost:8887/
  
  `npm start`
  
+ 10) Open a browser to http://localhost:3000/  Yay!
+ 
 
 
 
