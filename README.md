@@ -28,16 +28,22 @@ The server (back end) is Node/Express. The client (front end) is React.
 
 `cd art-thief `
 
-3) get the dependencies for the server
+3) get the dependencies for the node server
 
 ` npm install `
 
-4) get the dependencie for the client
+4) get the dependencie for the React client
 
  ` cd client`
  
  
  ` npm install `
+ 
+5) get the node server running
+
+`npm run dev` 
+
+Open a browser to http://localhost:8887/
 
 
 ## Built With
