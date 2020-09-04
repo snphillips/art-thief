@@ -53,28 +53,29 @@ note: you'll notice that the `.env` is listed in the .gitignore. This is to keep
 
 `npm run dev` 
 
-Open a browser to http://localhost:8887/
+Open a browser to http://localhost:8888/
 
 You should see a mostly white scren with the phrase: _Hello world, let's steal some art._
 
-Now check to see if you can hit the Cooper Hewitt Museum's API by pasting the following into your browser: http://localhost:8887/searchbytag/posters
+Now check to see if you can hit the Cooper Hewitt Museum's API by pasting the following into your browser: http://localhost:8888/searchbytag/memphis
 
-You should see a json object listing information about the museum's collection of posters. Yay!
+You should see a json object listing information about the museum's collection with the keyword memphis. Yay!
 
 (TODO: figure out Redis error)
 
-8) Get the dependencie for the React client
+8) Now let's get the React client working. Start by getting into the right directory:
 
  ` cd client`
  
+9) Get the dependencie for the React client
  
  ` npm install `
  
- 9) Start the React server
+10) Start the React server
  
  `npm start`
  
- 10) Open a browser to http://localhost:3000/  Yay!
+11) Open a browser to http://localhost:3000/  Yay!
  
 
 
