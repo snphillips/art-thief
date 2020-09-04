@@ -17,6 +17,8 @@ The server (back end) is Node/Express. The client (front end) is React.
 <img src="https://i.imgur.com/O3KKdaX.png" width="450" alt="screengrab of app">
 <img src="https://i.imgur.com/NRybiUm.png" width="450" alt="screengrab of app">
 <img src="https://i.imgur.com/n8tJRAN.png" width="450" alt="screengrab of app">
+<img src="https://i.imgur.com/2R8VULw.png" width="300" alt="screengrab of app mobile view">
+
 
 ## Geetting Started
 
