@@ -14,11 +14,10 @@ https://collection.cooperhewitt.org/api/
 
 The server (back end) is Node/Express. The client (front end) is React.
 
-<img src="https://i.imgur.com/O3KKdaX.png" width="500" alt="screengrab of app">
-<img src="https://i.imgur.com/NRybiUm.png" width="500" alt="screengrab of app">
-<img src="https://i.imgur.com/KZ5czvt.png" width="500" alt="screengrab of app">
-<img src="https://i.imgur.com/zKp3tDF.png" width="500" alt="screengrab of app">
-<img src="https://i.imgur.com/n8tJRAN.png" width="500" alt="screengrab of app">
+<img src="https://i.imgur.com/O3KKdaX.png" width="450" alt="screengrab of app">
+<img src="https://i.imgur.com/NRybiUm.png" width="450" alt="screengrab of app">
+<img src="https://i.imgur.com/KZ5czvt.png" width="450" alt="screengrab of app">
+<img src="https://i.imgur.com/n8tJRAN.png" width="450" alt="screengrab of app">
 
 ## Geetting Started
 1) Clone the repo
@@ -36,6 +35,7 @@ The server (back end) is Node/Express. The client (front end) is React.
 4) get the dependencie for the client
 
  ` cd client`
+ 
  
  ` npm install `
 
