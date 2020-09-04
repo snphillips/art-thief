@@ -61,7 +61,7 @@ Now check to see if you can hit the Cooper Hewitt Museum's API by pasting the fo
 
 You should see a json object listing information about the museum's collection with the keyword memphis. Yay!
 
-(TODO: figure out Redis error)
+(TODO: describe reason for Redis error and how to get around it)
 
 8) Now let's get the React client working. Start by getting into the right directory:
 
