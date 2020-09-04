@@ -41,7 +41,7 @@ const bodyParser = require('body-parser');
 // Set the port
 // either from an environmental variable or manually
 // ==================================
-const port = process.env.PORT || 8887;
+const port = process.env.PORT || 8888;
 
 
 

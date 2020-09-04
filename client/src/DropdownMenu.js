@@ -12,7 +12,7 @@ export default class DropdownMenu extends Component {
               value={this.props.parent_state.value}
               onChange={this.props.handleDropdownChange}>
 
-        <option value="exoticism">choose search keyword</option>
+        <option value="exoticism">select search keyword</option>
         <option className="dropdown-item-style" value="abstract">abstract</option>
         <option className="dropdown-item-style" value="angular">angular</option>
         <option className="dropdown-item-style" value="graphic design">graphic design</option>
@@ -33,7 +33,7 @@ export default class DropdownMenu extends Component {
       </select>
 
       <input type="submit"
-             class="button"
+             className="button"
              id="submit-button"
              value="submit" />
 
