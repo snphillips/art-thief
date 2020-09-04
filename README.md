@@ -20,26 +20,32 @@ The server (back end) is Node/Express. The client (front end) is React.
 <img src="https://i.imgur.com/n8tJRAN.png" width="450" alt="screengrab of app">
 
 ## Geetting Started
-1) Clone the repo
+
+1) Get an API key from the Cooper Hewitt Museum. Read about the Cooper Hewitt Museum API: https://collection.cooperhewitt.org/api/ 
+Sign up for an access token. Copy this token and save it for later. Give it delete access: https://collection.cooperhewitt.org/api/oauth2/authenticate/like-magic/
+
+2) Clone the repo
 
 `git clone https://github.com/snphillips/art-thief.git`
 
-2) cd into the directory
+3) Get into the correct directory
 
 `cd art-thief `
 
-3) get the dependencies for the node server
+4) Get the dependencies for the node server
 
 ` npm install `
 
-4) get the dependencie for the React client
+(TODO: insert instructions about how to create .env, insert token etc.)
+
+5) Get the dependencie for the React client
 
  ` cd client`
  
  
  ` npm install `
  
-5) get the node server running
+6) get the node server running
 
 `npm run dev` 
 
