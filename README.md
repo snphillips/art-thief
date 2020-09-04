@@ -21,8 +21,7 @@ The server (back end) is Node/Express. The client (front end) is React.
 
 ## Geetting Started
 
-1) Get an API key from the Cooper Hewitt Museum. Read about the Cooper Hewitt Museum API: https://collection.cooperhewitt.org/api/ 
-Sign up for an access token. Copy this token and save it for later. Give it delete access: https://collection.cooperhewitt.org/api/oauth2/authenticate/like-magic/
+1) Get an API access token from the Cooper Hewitt Museum. Copy this token and save it for later. Give it delete access: https://collection.cooperhewitt.org/api/oauth2/authenticate/like-magic/
 
 2) Clone the repo
 
