@@ -34,12 +34,12 @@ The server (back end) is Node/Express. The client (front end) is React.
 
 `cd art-thief `
 
-4) Get the dependencies for the node server
+4) Install the dependencies for the node server
 
 ` npm install `
 
 
-5) Create a .env file
+5) Create a .env file where you will keep your API access token
 
 `touch .env`
 
@@ -48,7 +48,6 @@ The server (back end) is Node/Express. The client (front end) is React.
 `COOPER_API_TOKEN='YOUR ACCESS TOKEN'`
 
 note: you'll notice that the `.env` is listed in the .gitignore. This is to keep your access token safe from prying eyes.
-`
 
 7) get the node server running
 
@@ -56,7 +55,13 @@ note: you'll notice that the `.env` is listed in the .gitignore. This is to keep
 
 Open a browser to http://localhost:8887/
 
-(TODO: insert instructions about how to check that server is working)
+You should see a mostly white scren with the phrase: _Hello world, let's steal some art._
+
+Now check to see if you can hit the Cooper Hewitt Museum's API by pasting the following into your browser: http://localhost:8887/searchbytag/posters
+
+You should see a json object listing information about the museum's collection of posters. Yay!
+
+(TODO: figure out Redis error)
 
 8) Get the dependencie for the React client
 
