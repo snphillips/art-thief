@@ -12,7 +12,9 @@ _Art Thief_ allows users to view random images from the Cooper Hewitt Museum's c
 _Art Thief_ is a project to experiment with the Cooper Hewitt Museum's wonderful API.
 https://collection.cooperhewitt.org/api/
 
-The server (back end) is Node/Express. The client (front end) is React.
+The server (back end) is Node/Express. 
+
+The client (front end) is React.
 
 <img src="https://i.imgur.com/O3KKdaX.png" width="450" alt="screengrab of app">
 <img src="https://i.imgur.com/NRybiUm.png" width="450" alt="screengrab of app">
@@ -24,7 +26,9 @@ The server (back end) is Node/Express. The client (front end) is React.
 
 ## Geetting Started
 
-1) Get an API access token from the Cooper Hewitt Museum. Copy this token and save it for later. Give it delete access: https://collection.cooperhewitt.org/api/oauth2/authenticate/like-magic/
+1) Get an API access token from the Cooper Hewitt Museum. 
+
+Copy this token and save it for later. Give it delete access: https://collection.cooperhewitt.org/api/oauth2/authenticate/like-magic/
 
 2) Clone the repo
 
@@ -56,6 +60,8 @@ note: you'll notice that the `.env` is listed in the .gitignore. This is to keep
 Open a browser to http://localhost:8888/
 
 You should see a mostly white scren with the phrase: _Hello world, let's steal some art._
+
+_(TODO insert instructions about how to swictch between development and production)_
 
 Now check to see if you can hit the Cooper Hewitt Museum's API by pasting the following into your browser: http://localhost:8888/searchbytag/memphis
 
