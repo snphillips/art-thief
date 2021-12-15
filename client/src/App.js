@@ -38,7 +38,7 @@ export default function App(props) {
   }
 
   function handleDropdownSubmit(event) {
-    console.log("handleDropdownSubmit clicked")
+    console.log("handleDropdownSubmit clicked value is:", value)
     setDisplayArtResultInfo({display: "none"});
     setDisplayArtResultInfo({display: "none"});
     setDisplayIntroMessage({display: "none"});
@@ -54,7 +54,7 @@ export default function App(props) {
     // 1) stops the loading spinner
     // 2) removes the placeholder image
     // 3) returns a random item (image, title, description & link url)
-    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${props.value}`)
+    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${value}`)
     // axios.get(`http://localhost:8888/searchbytag/`+`${state.value}`)
       .then( (response) => {
 
@@ -62,7 +62,7 @@ export default function App(props) {
         // in order to pluck the first item from the response array.
         response.data.objects = _Lodash.shuffle(response.data.objects)
 
-        console.log(`The search value is:`, props.value, `and there are`, (response.data.objects).length, `objects.`)
+        console.log(`The search value is:`, value, `and there are`, (response.data.objects).length, `objects.`)
 
         setLoading(false);
         setDisplayPlaceholderImage("none");
@@ -107,7 +107,9 @@ export default function App(props) {
               value={value}
               />
 
-            <PlaceholderImage displayPlaceholderImage={displayPlaceholderImage} />
+            <PlaceholderImage 
+              displayPlaceholderImage={displayPlaceholderImage} 
+              />
             <ArtResult 
               displayArtResultImage={displayArtResultImage}
               imageURL={imageURL}
@@ -124,7 +126,10 @@ export default function App(props) {
             <InformationPanel 
               displayIntroMessage={displayIntroMessage}
               displayArtResultInfo={setDisplayArtResultInfo}
-              learnMoreURL={learnMoreURL} 
+              itemTitle={itemTitle} 
+              itemInfo={itemInfo}
+              itemMedium={itemMedium}
+              learnMoreURL={learnMoreURL}
               />
           </div>
          </div>
