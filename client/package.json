@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "emotion": "^10.0.27",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "emotion": "^11.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-emotion": "^10.0.0",
-    "react-scripts": "^3.4.3",
-    "react-spinners": "^0.9.0"
+    "react-scripts": "^5.0.0",
+    "react-spinners": "^0.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,6 +32,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-emotion": "^10.0.27"
+    "eslint-plugin-emotion": "^11.0.0"
   }
 }
