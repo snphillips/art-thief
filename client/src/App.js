@@ -39,9 +39,9 @@ export default function App(props) {
 
   function handleDropdownSubmit(event) {
     console.log("handleDropdownSubmit clicked value is:", value)
-    setDisplayArtResultInfo({display: "none"});
-    setDisplayArtResultInfo({display: "none"});
-    setDisplayIntroMessage({display: "none"});
+    setDisplayArtResultInfo("none");
+    setDisplayArtResultInfo("none");
+    setDisplayIntroMessage("none");
     cooperHewittSearchByTagFromAPI()
     event.preventDefault();
   }
