@@ -5,7 +5,6 @@ import Header from './components/Header';
 import PlaceholderImage from './components/PlaceholderImage';
 import DropdownMenu from './components/DropdownMenu';
 import ArtResult from './components/ArtResult';
-import ImageModal from './components/ImageModal';
 import InformationPanel from './components/InformationPanel';
 import Footer from './components/Footer';
 
@@ -23,7 +22,6 @@ export default function App(props) {
     const [value, setValue] = useState("exoticism");
     const [displayArtResultImage, setDisplayArtResultImage] = useState('none');
     const [displayArtResultInfo, setDisplayArtResultInfo] = useState('none');
-    const [displayModal, setDisplayModal] = useState('none');
     const [displayIntroMessage, setDisplayIntroMessage] = useState('inline');
     const [displayLargeArt, setDisplayLargeArt] = useState('none');
     const [displayPlaceholderImage, setDisplayPlaceholderImage] = useState('block');
@@ -79,17 +77,6 @@ export default function App(props) {
       });
   };
 
-  /* ==================================
-  modal: the expanded image
-  ================================== */
-  function viewBigImage(event) {
-    setDisplayModal("block");
-    setBigImageURL(imageURL);
-  }
-
-  function closeBigImage(event) {
-    setDisplayModal("none");
-  }
 
 /* ==================================
  And finally, the return
@@ -98,31 +85,28 @@ export default function App(props) {
     return (
       <div className="App">
        <Header />
-        <div className="container">
-          <div className="image-container-stack-vertical flex-item">
+       <div className="container">
+         <div className="dropdown-menu-container">
             <DropdownMenu 
               handleDropdownChange={handleDropdownChange}
               handleDropdownSubmit={handleDropdownSubmit}
               loading={loading}
               value={value}
-              />
+            />
+       </div>  
+          <div className="art-and-text-container">
 
-            <PlaceholderImage 
-              displayPlaceholderImage={displayPlaceholderImage} 
-              />
-            <ArtResult 
-              displayArtResultImage={displayArtResultImage}
-              imageURL={imageURL}
-              viewBigImage={viewBigImage} 
-              />
-
-            <ImageModal 
-              displayModal={displayModal}
-              imageUrl={imageURL}
-              closeBigImage={closeBigImage}
-              />
+            <div className='image-container'>
+                <PlaceholderImage 
+                displayPlaceholderImage={displayPlaceholderImage} 
+                />
+              <ArtResult 
+                displayArtResultImage={displayArtResultImage}
+                imageURL={imageURL}
+                />  
+            </div>
           </div>
-          <div className="info-container-stack-horizontal flex-item">
+          <div className="info-container-horizontal flex-item">
             <InformationPanel 
               displayIntroMessage={displayIntroMessage}
               displayArtResultInfo={setDisplayArtResultInfo}

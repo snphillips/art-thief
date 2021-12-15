@@ -13,27 +13,33 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: row;
+  display: block;
+  /* flex-direction: row;
   justify-content: space-between;
   justify-content: space-between;
   justify-content: flex-start;
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 
-.image-container-stack-vertical {
+.image-container {
+  display: flex;
+}
+
+.image-container-vertical {
   display: flex; /* or inline-flex */
   flex-direction: column;
   margin-right: 4%;
 }
 
-.info-container-stack-horizontal {
+.info-container-horizontal {
   display: flex; /* or inline-flex */
   flex: 2 0px;  /*tell this element to take up twice as much space */
   flex-direction: row;
   max-width: 400pt;
   padding-top: 1em;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 header, footer {
@@ -99,6 +105,11 @@ a.header-link:hover:after{
 /*==============================
 dropdown menu(select) & submit(input)
 ================================*/
+.dropdown-menu-container {
+  display: block;  
+}
+
+
 form {
   /*max-width: 27em;*/
   /*margin-top: 1em;*/
