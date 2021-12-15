@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 // the spinner in an npm package
 import LoadingSpinner from './LoadingSpinner';
 
-export default class DropdownMenu extends Component {
-  render() {
-    return (
+export default function DropdownMenu(props) {
+  return (
 
-    <form onSubmit={this.props.handleDropdownSubmit} >
+    <form onSubmit={props.handleDropdownSubmit} >
 
-      <select id="tag"
-              value={this.props.parent_state.value}
-              onChange={this.props.handleDropdownChange}>
-
+      <select 
+        id="tag"
+        value={props.parent_state.value}
+        onChange={props.handleDropdownChange}
+      >
         <option value="exoticism">select search keyword</option>
         <option className="dropdown-item-style" value="abstract">abstract</option>
         <option className="dropdown-item-style" value="angular">angular</option>
@@ -29,18 +29,17 @@ export default class DropdownMenu extends Component {
         <option className="dropdown-item-style" value="posters">posters</option>
         <option className="dropdown-item-style" value="simple">simple</option>
         <option className="dropdown-item-style" value="textile design">textile desgin</option>
-
       </select>
 
-      <input type="submit"
-             className="button"
-             id="submit-button"
-             value="submit" />
+      <input
+        type="submit"
+        className="button"
+        id="submit-button"
+        value="submit"
+      />
 
-      <LoadingSpinner loading={this.props.loading} />
+      <LoadingSpinner loading={props.loading} />
 
     </form>
-
-    );
-  }
+  );
 }
