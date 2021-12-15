@@ -5,13 +5,13 @@ import _Lodash from 'lodash';
 // ===============================
 // Importing Pages
 // ===============================
-import Header from './Header';
-import PlaceholderImage from './PlaceholderImage';
-import DropdownMenu from './DropdownMenu';
-import ArtResult from './ArtResult';
-import ImageModal from './ImageModal';
-import InformationPanel from './InformationPanel';
-import Footer from './Footer';
+import Header from './components/Header';
+import PlaceholderImage from './components/PlaceholderImage';
+import DropdownMenu from './components/DropdownMenu';
+import ArtResult from './components/ArtResult';
+import ImageModal from './components/ImageModal';
+import InformationPanel from './components/InformationPanel';
+import Footer from './components/Footer';
 
 export default class App extends Component {
   constructor(props) {
