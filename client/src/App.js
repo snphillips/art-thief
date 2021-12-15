@@ -41,15 +41,15 @@ export default class App extends Component {
     this.viewBigImage = this.viewBigImage.bind(this);
     this.closeBigImage = this.closeBigImage.bind(this);
   }
-// ***********************************
-// End of constructor
-// ***********************************
+/* ***********************************
+End of constructor
+*********************************** */
 
- //  ==================================
- //  dropdown menu. First they choose
- //  a value/search tag in the Change event,
- //  then submit that value.
- //  ==================================
+/*   ==================================
+  dropdown menu. First they choose
+  a value/search tag in the Change event,
+  then submit that value.
+  ================================== */
   handleDropdownChange(event) {
     this.setState({value: event.target.value});
   }
@@ -94,9 +94,9 @@ export default class App extends Component {
       });
   };
 
- //  ==================================
- //  modal: the expanded image
- //  ==================================
+/*   ==================================
+  modal: the expanded image
+  ================================== */
   viewBigImage(event) {
     this.setState({displayModal: {'display': "block"}})
     this.setState({BigImageURL: this.imageURL})
@@ -109,9 +109,9 @@ export default class App extends Component {
 
 
 
-//  ==================================
-//  And finally, the render
-//  ==================================
+/*  ==================================
+ And finally, the render
+ ================================== */
   render() {
     return (
       <div className="App">

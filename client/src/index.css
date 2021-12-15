@@ -4,10 +4,12 @@ General Styling
 ================================*/
 body {
   background-color: white;
+  background-color: #8c92a6;
   margin: auto;
   font-family:sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #111;
 }
 
 .container {
@@ -110,6 +112,7 @@ select, input {
   font-weight: bold;
   font-size: 100%;
   cursor: pointer;
+  text-align: center;
   /* safari iOS looks bad */
   -webkit-appearance: none;
 }
