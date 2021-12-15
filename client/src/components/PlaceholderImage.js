@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class PlaceholderImage extends Component {
-  render() {
-    return (
+export default function PlaceholderImage(props) {
+  return (
+    <div style={props.parent_state.displayPlaceholderImage}>
 
-      <div style={this.props.parent_state.displayPlaceholderImage}>
+      <img id="placeholder-image"
 
-        <img id="placeholder-image"
+        alt=""
+        src="./images/Cooper-Hewitt_Museum02.png"
 
-             alt=""
+        onMouseOver={ (event) => {
+          event.currentTarget.src = "https://i.imgur.com/IwBKBye.png"
+        }}
 
-             src="./images/Cooper-Hewitt_Museum02.png"
+        onMouseOut={ (event) => {
+          event.currentTarget.src = "./images/Cooper-Hewitt_Museum02.png"
+        }}
 
-             onMouseOver={ (event) => {
-               event.currentTarget.src = "https://i.imgur.com/IwBKBye.png"
-             }}
+      />
 
-             onMouseOut={ (event) => {
-               event.currentTarget.src = "./images/Cooper-Hewitt_Museum02.png"
-             }}
-
-             />
-
-      </div>
-
-    );
-  }
+    </div>
+  );
 }
 
 
