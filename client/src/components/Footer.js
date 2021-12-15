@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Footer extends Component {
-  render() {
+export default function Footer(props) {
     return (
 
         <footer>
@@ -9,5 +8,4 @@ export default class Footer extends Component {
           <span className="footerLink"><a href="https://github.com/snphillips/art-thief"><i className="fab fa-github"></i></a></span>
         </footer>
     );
-  }
 }
