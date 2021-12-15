@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import _Lodash from 'lodash';
 import Header from './components/Header';
@@ -9,97 +9,70 @@ import ImageModal from './components/ImageModal';
 import InformationPanel from './components/InformationPanel';
 import Footer from './components/Footer';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false, // the loading spinner
-      // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
-      // serverSource: 'http://localhost:8000/searchbytag',
-      imageURL:"",
-      itemTitle: "",
-      itemMedium: "",
-      itemInfo: "",
-      learnMoreURL:"",
-      value:"exoticism", //starting with a value in case the user doesn't choose before hitting submit
-      displayArtResultImage: {"display": "none"},
-      displayArtResultInfo: {"display": "none"}, // this refers to all image details like title, materials, url etc.
-      displayModal: {"display": "none"},
-      displayIntroMessage: {"display": "inline"},
-      displayLargeArt: {"display": "none"},
-      displayPlaceholderSquare: {"display": "block"},
-    };
+export default function App(props) {
 
     // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
     // serverSource: 'http://localhost:8000/searchbytag',
     const [loading, setLoading] = useState(false);
-    const [imageUR, setimageURL] = useState("");
+    const [imageURL, setImageURL] = useState("");
+    const [bigImageURL, setBigImageURL] = useState("");
     const [itemTitle, setItemTitle] = useState("");
     const [itemMedium, setItemMedium] = useState("");
     const [itemInfo, setItemInfo] = useState("");
-    const [learnMoreUR, setLearnMore] = useState("");
+    const [learnMoreURL, setLearnMoreURL] = useState("");
     const [value, setValue] = useState("exoticism");
-    const [displayArtResultImage, setDisplayArtResultImage] = useState("display : none");
-    const [displayArtResultInfo, setDisplayArtResultInfo] = useState("display : none");
-    const [displayModal, setDisplayModal] = useState("display : none");
-    const [displayIntroMessage, setDisplayIntroMessage] = useState("display : inline");
-    const [displayLargeArt, setDisplayLargeArt] = useState("display : none");
-    const [displayPlaceholderSquare, setDisplayPlaceholderSquare] = useState("display : block");
+    const [displayArtResultImage, setDisplayArtResultImage] = useState('none');
+    const [displayArtResultInfo, setDisplayArtResultInfo] = useState('none');
+    const [displayModal, setDisplayModal] = useState('none');
+    const [displayIntroMessage, setDisplayIntroMessage] = useState('inline');
+    const [displayLargeArt, setDisplayLargeArt] = useState('none');
+    const [displayPlaceholderImage, setDisplayPlaceholderImage] = useState('block');
 
-    // This binding is necessary to make `this` work in the callback
-    this.handleDropdownChange = this.handleDropdownChange.bind(this);
-    this.handleDropdownSubmit = this.handleDropdownSubmit.bind(this);
-    this.viewBigImage = this.viewBigImage.bind(this);
-    this.closeBigImage = this.closeBigImage.bind(this);
-  }
-/* ***********************************
-End of constructor
-*********************************** */
-
-/*   ==================================
-  dropdown menu. First they choose
+  /* ==================================
+  Dropdown menu. First the user choose
   a value/search tag in the Change event,
   then submit that value.
   ================================== */
-  handleDropdownChange(event) {
-    this.setState({value: event.target.value});
+  function handleDropdownChange(event) {
+    setValue(event.target.value)
   }
 
-  handleDropdownSubmit(event) {
-    this.setState({displayArtResultInfo: {"display": "none"}})
-    this.setState({displayIntroMessage: {"display": "none"}})
-    this.cooperHewittSearchByTagFromAPI()
+  function handleDropdownSubmit(event) {
+    console.log("handleDropdownSubmit clicked")
+    setDisplayArtResultInfo({display: "none"});
+    setDisplayArtResultInfo({display: "none"});
+    setDisplayIntroMessage({display: "none"});
+    cooperHewittSearchByTagFromAPI()
     event.preventDefault();
   }
 
-  cooperHewittSearchByTagFromAPI() {
-    this.setState({loading: true})
+  function cooperHewittSearchByTagFromAPI() {
+    setLoading(true)
 
-    // ${this.state.value} is whatever keyword the user chooses from the dropdown menu
+    // ${state.value} is whatever keyword the user chooses from the dropdown menu
     // The "response" does the following:
     // 1) stops the loading spinner
     // 2) removes the placeholder image
     // 3) returns a random item (image, title, description & link url)
-    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${this.state.value}`)
-    // axios.get(`http://localhost:8888/searchbytag/`+`${this.state.value}`)
+    axios.get(`https://art-thief.herokuapp.com/searchbytag/`+`${props.value}`)
+    // axios.get(`http://localhost:8888/searchbytag/`+`${state.value}`)
       .then( (response) => {
 
         // Using the _Lodash library to first shuffle the response array,
         // in order to pluck the first item from the response array.
         response.data.objects = _Lodash.shuffle(response.data.objects)
 
-        console.log(`The search value is:`, this.state.value, `and there are`, (response.data.objects).length, `objects.`)
+        console.log(`The search value is:`, props.value, `and there are`, (response.data.objects).length, `objects.`)
 
-        this.setState({loading: false});
-        this.setState({displayPlaceholderImage: {"display": "none"}})
-        this.setState({displayArtResultImage: {"display": "block"}})
-        this.setState({imageURL: response.data.objects[0].images[0].z.url})
-        this.setState({itemTitle: response.data.objects[0].title})
-        this.setState({itemMedium: response.data.objects[0].medium})
-        this.setState({itemInfo: response.data.objects[0].label_text})
-        this.setState({learnMoreURL: response.data.objects[0].url})
-        this.setState({displayArtResultInfo: {"display": "block"}})
+        setLoading(false);
+        setDisplayPlaceholderImage("none");
+        setDisplayArtResultImage("block");
+        setImageURL(response.data.objects[0].images[0].z.url);
+        setItemTitle(response.data.objects[0].title);
+        setItemMedium(response.data.objects[0].medium);
+        setItemInfo(response.data.objects[0].label_text);
+        setLearnMoreURL(response.data.objects[0].url);
+        setDisplayArtResultInfo("block");
       })
       .catch(function (error) {
         console.log(error);
@@ -109,42 +82,53 @@ End of constructor
   /* ==================================
   modal: the expanded image
   ================================== */
-  viewBigImage(event) {
-    this.setState({displayModal: {'display': "block"}})
-    this.setState({BigImageURL: this.imageURL})
+  function viewBigImage(event) {
+    setDisplayModal("block");
+    setBigImageURL(imageURL);
   }
 
-  closeBigImage(event) {
-    this.setState({displayModal: {'display': "none"}})
+  function closeBigImage(event) {
+    setDisplayModal("none");
   }
 
 /* ==================================
  And finally, the return
  ================================== */
-  render() {
+
     return (
       <div className="App">
        <Header />
         <div className="container">
           <div className="image-container-stack-vertical flex-item">
-            <DropdownMenu handleDropdownChange={this.handleDropdownChange}
-                          handleDropdownSubmit={this.handleDropdownSubmit}
-                          parent_state={this.state}
-                          loading={this.state.loading} />
+            <DropdownMenu 
+              handleDropdownChange={handleDropdownChange}
+              handleDropdownSubmit={handleDropdownSubmit}
+              loading={loading}
+              value={value}
+              />
 
-            <PlaceholderImage parent_state={this.state} />
-            <ArtResult parent_state={this.state}
-                       viewBigImage={this.viewBigImage} />
+            <PlaceholderImage displayPlaceholderImage={displayPlaceholderImage} />
+            <ArtResult 
+              displayArtResultImage={displayArtResultImage}
+              imageURL={imageURL}
+              viewBigImage={viewBigImage} 
+              />
 
-            <ImageModal parent_state={this.state}
-                        closeBigImage={this.closeBigImage} />
+            <ImageModal 
+              displayModal={displayModal}
+              imageUrl={imageURL}
+              closeBigImage={closeBigImage}
+              />
           </div>
           <div className="info-container-stack-horizontal flex-item">
-            <InformationPanel parent_state={this.state} />
+            <InformationPanel 
+              displayIntroMessage={displayIntroMessage}
+              displayArtResultInfo={setDisplayArtResultInfo}
+              learnMoreURL={learnMoreURL} 
+              />
           </div>
          </div>
        <Footer />
       </div>
     );
-  }
 }

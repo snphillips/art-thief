@@ -5,9 +5,12 @@ export default function ArtResult(props) {
   return (
 
     <span className="ArtResult"
-      style={props.parent_state.displayArtResultImage}
+      style={{
+        display: props.displayArtResultImage
+      }}
       >
-        <img src={props.parent_state.imageURL}
+        <img 
+          src={props.imageURL}
           alt="random item from Cooper Hewitt collection based on search tag"
           className="image-URL"
           onClick={props.viewBigImage}

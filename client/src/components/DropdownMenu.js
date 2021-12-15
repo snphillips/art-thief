@@ -9,7 +9,7 @@ export default function DropdownMenu(props) {
 
       <select 
         id="tag"
-        value={props.parent_state.value}
+        value={props.value}
         onChange={props.handleDropdownChange}
       >
         <option value="exoticism">select search keyword</option>

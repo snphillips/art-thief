@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PlaceholderImage(props) {
   return (
-    <div style={props.parent_state.displayPlaceholderImage}>
+    <div style={{display: props.displayPlaceholderImage}}>
 
       <img id="placeholder-image"
 
