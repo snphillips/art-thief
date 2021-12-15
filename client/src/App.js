@@ -97,16 +97,15 @@ export default function App(props) {
           <div className="art-and-text-container">
 
             <div className='image-container'>
-                <PlaceholderImage 
+              <PlaceholderImage 
                 displayPlaceholderImage={displayPlaceholderImage} 
-                />
+              />
               <ArtResult 
                 displayArtResultImage={displayArtResultImage}
                 imageURL={imageURL}
                 />  
             </div>
-          </div>
-          <div className="info-container-horizontal flex-item">
+           <div className="text-container">
             <InformationPanel 
               displayIntroMessage={displayIntroMessage}
               displayArtResultInfo={setDisplayArtResultInfo}
@@ -115,6 +114,7 @@ export default function App(props) {
               itemMedium={itemMedium}
               learnMoreURL={learnMoreURL}
               />
+          </div>
           </div>
          </div>
        <Footer />
