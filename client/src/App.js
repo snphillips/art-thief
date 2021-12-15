@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 import _Lodash from 'lodash';
-
-// ===============================
-// Importing Pages
-// ===============================
 import Header from './components/Header';
 import PlaceholderImage from './components/PlaceholderImage';
 import DropdownMenu from './components/DropdownMenu';
@@ -34,6 +30,22 @@ export default class App extends Component {
       displayLargeArt: {"display": "none"},
       displayPlaceholderSquare: {"display": "block"},
     };
+
+    // serverSource: 'https://art-thief.herokuapp.com/searchbytag',
+    // serverSource: 'http://localhost:8000/searchbytag',
+    const [loading, setLoading] = useState(false);
+    const [imageUR, setimageURL] = useState("");
+    const [itemTitle, setItemTitle] = useState("");
+    const [itemMedium, setItemMedium] = useState("");
+    const [itemInfo, setItemInfo] = useState("");
+    const [learnMoreUR, setLearnMore] = useState("");
+    const [value, setValue] = useState("exoticism");
+    const [displayArtResultImage, setDisplayArtResultImage] = useState("display : none");
+    const [displayArtResultInfo, setDisplayArtResultInfo] = useState("display : none");
+    const [displayModal, setDisplayModal] = useState("display : none");
+    const [displayIntroMessage, setDisplayIntroMessage] = useState("display : inline");
+    const [displayLargeArt, setDisplayLargeArt] = useState("display : none");
+    const [displayPlaceholderSquare, setDisplayPlaceholderSquare] = useState("display : block");
 
     // This binding is necessary to make `this` work in the callback
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
@@ -94,7 +106,7 @@ End of constructor
       });
   };
 
-/*   ==================================
+  /* ==================================
   modal: the expanded image
   ================================== */
   viewBigImage(event) {
@@ -106,47 +118,32 @@ End of constructor
     this.setState({displayModal: {'display': "none"}})
   }
 
-
-
-
-/*  ==================================
- And finally, the render
+/* ==================================
+ And finally, the return
  ================================== */
   render() {
     return (
       <div className="App">
-
        <Header />
-
         <div className="container">
-
           <div className="image-container-stack-vertical flex-item">
-
             <DropdownMenu handleDropdownChange={this.handleDropdownChange}
                           handleDropdownSubmit={this.handleDropdownSubmit}
                           parent_state={this.state}
                           loading={this.state.loading} />
 
             <PlaceholderImage parent_state={this.state} />
-
             <ArtResult parent_state={this.state}
                        viewBigImage={this.viewBigImage} />
 
             <ImageModal parent_state={this.state}
                         closeBigImage={this.closeBigImage} />
-
           </div>
-
           <div className="info-container-stack-horizontal flex-item">
-
             <InformationPanel parent_state={this.state} />
-
           </div>
-
          </div>
-
        <Footer />
-
       </div>
     );
   }
