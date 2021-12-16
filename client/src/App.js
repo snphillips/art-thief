@@ -14,8 +14,8 @@ export default function App(props) {
     // serverSource: 'http://localhost:8000/searchbytag',
     const [loading, setLoading] = useState(false);
     const [imageURL, setImageURL] = useState("");
-    const [bigImageURL, setBigImageURL] = useState("");
     const [itemTitle, setItemTitle] = useState("");
+    const [itemDate, setItemDate] = useState("");
     const [itemMedium, setItemMedium] = useState("");
     const [itemInfo, setItemInfo] = useState("");
     const [learnMoreURL, setLearnMoreURL] = useState("");
@@ -94,7 +94,7 @@ export default function App(props) {
               value={value}
             />
        </div>  
-          <div className="art-and-text-container">
+          <div className="image-and-text-container">
 
             <div className='image-container'>
               <PlaceholderImage 
