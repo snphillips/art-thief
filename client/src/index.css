@@ -22,6 +22,10 @@ body {
   flex-wrap: wrap; */
 }
 
+a {
+  color: white;
+}
+
 .dropdown-menu-container {
   display: block;
 }
@@ -39,9 +43,8 @@ body {
   display: block;
   padding: 2rem;
   background-color: #a9adbc;
+  width: 100%;
 }
-
-
 
 .image-container-vertical {
   display: flex; /* or inline-flex */
@@ -185,8 +188,8 @@ Placeholder image
 img#placeholder-image {
   height: auto;
   max-width: 350pt;
-  margin-top: 2.5em;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 /* not using but keep just in case you do in the future */
@@ -203,7 +206,7 @@ h2.placeholderText {
   cursor: pointer;
   max-height: 65vh;
   max-width: auto;
-  margin-right: 20pt;
+  margin-right: 1rem;
 }
 
 .image-URL:hover {
@@ -229,11 +232,27 @@ h2.item-title {
 }
 
 .item-information, .item-medium {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
-a.learn-more-link {
-  color: black;
+button {
+  background-color: rgba(0,0,0,1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 100%;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 20px;
+  /* safari iOS looks bad */
+  -webkit-appearance: none;
+}
+
+a.learn-more-button {
+  background-color: black;
+  color: white !important;
+  margin: 9px 17px;
   font-weight: bold;
   position: relative;
   text-decoration: none; /*This removes the default underline*/
@@ -248,7 +267,7 @@ a.learn-more-link:after {
   display: block;
   margin-top: 4px;
   right: 0;
-   background: black;
+  background: black;
   transition: width .4s ease;
   -webkit-transition: width .4s ease;
 }

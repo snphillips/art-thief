@@ -108,7 +108,7 @@ export default function App(props) {
            <div className="text-container">
             <InformationPanel 
               displayIntroMessage={displayIntroMessage}
-              displayArtResultInfo={setDisplayArtResultInfo}
+              displayArtResultInfo={displayArtResultInfo}
               itemTitle={itemTitle} 
               itemInfo={itemInfo}
               itemMedium={itemMedium}

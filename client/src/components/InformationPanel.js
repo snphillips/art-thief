@@ -8,7 +8,16 @@ export default function InformationPanel(props) {
         <h2 style={{display: props.displayArtResultInfo}}className="item-title">{props.itemTitle}</h2>
         <p style={{display: props.displayArtResultInfo}}className="item-medium">{props.itemMedium}</p>
         <p style={{display: props.displayArtResultInfo}}className="item-information">{props.itemInfo}</p>
-        <p style={{display: props.displayArtResultInfo}}><a className="learn-more-link" href={props.learnMoreURL}>learn more about this item</a></p>
+        <button 
+          className="learn-more-button"
+          style={{display: props.displayArtResultInfo}}
+        >
+          <a 
+            href={props.learnMoreURL}
+            >
+              learn more about this item
+          </a>
+        </button>
         <br/>
         <br/>
         <br/>
