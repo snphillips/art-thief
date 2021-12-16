@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'emotion';
+import { jsx, css } from '@emotion/react'
 // react-spinners is an npm package
 import { ScaleLoader } from 'react-spinners';
 
@@ -15,7 +15,6 @@ export default function LoadingSpinner(props) {
       <ScaleLoader
         className={override}
         sizeUnit={"px"}
-        // size={32}
         height={32}
         color={'#000'}
         loading={props.loading}
