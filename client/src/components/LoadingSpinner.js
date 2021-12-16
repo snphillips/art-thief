@@ -1,7 +1,7 @@
 import React from 'react';
-import { jsx, css } from '@emotion/react'
+import {css} from '@emotion/react'
 // react-spinners is an npm package
-import { ScaleLoader } from 'react-spinners';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 const override = css`
     display: block;

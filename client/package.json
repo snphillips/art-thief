@@ -3,11 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "emotion": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-emotion": "^10.0.0",
     "react-scripts": "^5.0.0",
     "react-spinners": "^0.11.0"
   },
@@ -33,7 +30,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@emotion/babel-plugin": "^11.7.1",
-    "eslint-plugin-emotion": "^11.0.0"
+    "eslint": "^8.4.1"
   }
 }
