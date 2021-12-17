@@ -69,7 +69,7 @@ You should see a json object listing information about the museum's collection w
 
 (TODO: describe reason for Redis error and how to get around it)
 
-8) Now let's get the React client (front-end) working. 
+8) To get the React client (front-end) working, follow the instruction in the following repo: https://github.com/snphillips/art-thief-client 
  
 
 
