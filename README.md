@@ -69,28 +69,14 @@ You should see a json object listing information about the museum's collection w
 
 (TODO: describe reason for Redis error and how to get around it)
 
-8) Now let's get the React client working. Start by getting into the right directory:
-
- ` cd client`
- 
-9) Get the dependencie for the React client
- 
- ` npm install `
- 
-10) Start the React server
- 
- `npm start`
- 
-11) Open a browser to http://localhost:3000/  Yay!
+8) Now let's get the React client (front-end) working. 
  
 
 
 
 ## Built With
 - node/express (server)
-- react (client)
 - axios for API calls
 - Cooper Hewitt Museum API
 - redis to cache results for quick retrieval
 - server hosted on Heroku
-- client hosted on Surge
