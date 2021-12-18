@@ -1,11 +1,13 @@
 # Art Thief
 
-View Art Thief here: https://art-thief.surge.sh/
+NOTE: THIS REPO CONTAINS THE BACK END SERVER(BACK-END). THE CLIENT(FRONT-END) REPO CAN BE FOUND HERE: https://github.com/snphillips/art-thief-client 
+
+View Art Thief deployed here: https://art-thief.surge.sh/
 
 ## Project Description
 _"Good artists copy; great artists steal."_ 
 
-I don't know about that, but I do know a good way to dislodge a creative block is to inspired by the work of the great artists, designers and creators that have come before us. 
+I don't know about that, but I do know that a good way to dislodge a creative block is to inspired by the work of the great artists, designers and creators that have come before us. 
 
 _Art Thief_ allows users to view random images from the Cooper Hewitt Museum's collection, based on selected keywords such as angular, art deco, modernism etc. 
 
@@ -29,7 +31,7 @@ The client (front end) is React.
 
 Copy this token and save it for later. Give it delete access: https://collection.cooperhewitt.org/api/oauth2/authenticate/like-magic/
 
-2) Clone the repo
+2) Clone the repo 👯‍♀️
 
 `git clone https://github.com/snphillips/art-thief.git`
 
@@ -37,7 +39,7 @@ Copy this token and save it for later. Give it delete access: https://collection
 
 `cd art-thief `
 
-4) Install the dependencies for the node server
+4) Install the dependencies for the node server 🏗
 
 ` npm install `
 
@@ -56,7 +58,7 @@ note: you'll notice that the `.env` is listed in the .gitignore. This is to keep
 
 `npm run dev` 
 
-Open a browser to http://localhost:8888/
+Open a browser to http://localhost:8888/ 
 
 You should see a mostly white scren with the phrase: _Hello world, let's steal some art._
 
@@ -64,14 +66,12 @@ _(TODO insert instructions about how to swictch between development and producti
 
 Now check to see if you can hit the Cooper Hewitt Museum's API by pasting the following into your browser: http://localhost:8888/searchbytag/memphis
 
-You should see a json object listing information about the museum's collection with the keyword memphis. Yay!
+You should see a json object listing information about the museum's collection with the keyword memphis. Yay! 🧚‍♀️
 
 (TODO: describe reason for Redis error and how to get around it)
 
 8) To get the React client (front-end) working, follow the instruction in the following repo: https://github.com/snphillips/art-thief-client 
  
-
-
 
 ## Built With
 - node/express (server)
