@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "jasmine": "^3.8.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.20"
   }
 }
